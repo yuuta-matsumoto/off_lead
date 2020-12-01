@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>OffLead</title>
+    <title>offLead</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,16 +11,19 @@
   <body>
 
     <header>
+      <h1>オフリード</h1>
       <nav>
-          <% if user_signed_in? %>
-            <strong><%= link_to current_user.username, pages_show_path %></strong>
-            <%= link_to 'プロフィール変更', edit_user_registration_path %>
-            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to 'サインアップ', new_user_registration_path %>
-            <%= link_to 'ログイン', new_user_session_path %>
-          <% end %>
+        <% if user_signed_in? %>
+          <strong><%= link_to current_user.username, pages_show_path %></strong>
+          <%= link_to 'プロフィール変更', edit_user_registration_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'サインアップ', new_user_registration_path %>
+          <%= link_to 'ログイン', new_user_session_path %>
+        <% end %>
+        <p><a href="#">検討リスト</a></p>
       </nav>
+
     </header>
 
     <p class="notice"><%= notice %></p>
