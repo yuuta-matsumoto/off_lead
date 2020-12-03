@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>offLead</title>
+    <title>オフリード</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-    <header>
-      <h1>オフリード</h1>
-      <nav>
-        <% if user_signed_in? %>
-          <strong><%= link_to current_user.username, pages_show_path %></strong>
-          <%= link_to 'プロフィール変更', edit_user_registration_path %>
-          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to 'サインアップ', new_user_registration_path %>
-          <%= link_to 'ログイン', new_user_session_path %>
-        <% end %>
-        <p><a href="#">検討リスト</a></p>
-      </nav>
-
-    </header>
-
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <%= render 'layouts/header' %>
     <%= yield %>
+
+    <footer>
+      <h2>オフリード</h2>
+      <ul>
+        <li><a href="#">利用規約</li>
+        <li><a href="#">プライバシーポリシー</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </footer>
   </body>
 </html>
