@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'post/new'
+  get 'post/index'
   devise_for :users
   devise_for :views
   root 'pages#index'
