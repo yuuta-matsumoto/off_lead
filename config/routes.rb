@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts' => 'posts#index'
-  get 'posts/new' => 'posts#new'
-  post 'posts' => 'posts#create'
+  resources :posts
   devise_for :users
   devise_for :views
   root 'pages#index'

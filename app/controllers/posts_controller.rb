@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.all
   end
 
   def new
@@ -10,7 +10,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = Post.new(user_id: current_user.id,
+                       title: post_params[:title],
+                     content: post_params[:content], 
+                       price: post_params[:price])
     if @post.save
       redirect_to posts_path
     else
@@ -18,8 +21,14 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @post = Post.find(params[:id])
+  end
+
+
+
   private
     def post_params
-      params.require(:post).permit(:user_id, :title, :content, :price)
+      params.require(:post).permit(:title, :content, :price)
     end
 end
