@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
-  get 'posts/create'
-  get 'posts/new'
-  get 'posts/index'
-  get 'post/new'
-  get 'post/index'
+  get 'posts' => 'posts#index'
   devise_for :users
   devise_for :views
   root 'pages#index'
