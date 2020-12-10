@@ -26,12 +26,12 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find_by(id: params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post = Post.find_by(id: params[:id])
-    if @post.update(user_id: current_user.id,
+    post = Post.find(params[:id])
+    if post.update(user_id: current_user.id,
                       title: post_params[:title],
                     content: post_params[:content], 
                       price: post_params[:price])
@@ -39,6 +39,12 @@ class PostsController < ApplicationController
     else
       render action: :edit
     end
+  end
+
+  def destroy!
+    @post = Post.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path
   end
 
   private
