@@ -6,7 +6,6 @@ class CreatePosts < ActiveRecord::Migration[6.0]
       t.text   :content
       t.string :price
 
-
       t.timestamps
     end
   end

@@ -14,7 +14,9 @@ gem 'rails-i18n', '~> 6.0'
 gem 'devise-i18n'
 # Bootstrap
 gem 'devise-bootstrap-views', '~> 1.0'
-
+#画像のアップロード
+gem 'carrierwave', '~> 2.0'
+#データベース 
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
