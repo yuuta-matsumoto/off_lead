@@ -13,7 +13,8 @@ class PostsController < ApplicationController
     @post = Post.new(user_id: current_user.id,
                        title: post_params[:title],
                      content: post_params[:content], 
-                       price: post_params[:price])
+                       price: post_params[:price],
+                         img: post_params[:img])
     if @post.save
       redirect_to posts_path
     else
@@ -34,7 +35,8 @@ class PostsController < ApplicationController
     if post.update(user_id: current_user.id,
                       title: post_params[:title],
                     content: post_params[:content], 
-                      price: post_params[:price])
+                      price: post_params[:price],
+                        img: post_params[:img])
       redirect_to posts_path
     else
       render action: :edit
@@ -49,6 +51,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :title, :content, :price)
+      params.require(:post).permit(:user_id, :title, :content, :price, :img)
     end
 end

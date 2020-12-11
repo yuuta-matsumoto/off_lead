@@ -6,6 +6,9 @@
 </div>
 
 <div class="card">
+  <p>
+    <%= image_tag @post.img.url if @post.img? %>
+  </p>
   <div class="card-header bg-info text-white">
       <h4><%= @post.title %></h4>
   </div>
