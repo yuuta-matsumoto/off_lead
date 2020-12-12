@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'reviews/new'
   resources :posts
   devise_for :users
   devise_for :views
