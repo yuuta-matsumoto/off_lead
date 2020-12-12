@@ -10,12 +10,9 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(user_id: current_user.id,
-                       title: post_params[:title],
-                     content: post_params[:content], 
-                       price: post_params[:price],
-                         img: post_params[:img])
+    @post = Post.new(post_params)
     if @post.save
+      flash[:success] = "投稿しました"
       redirect_to posts_path
     else
       render action: :new
@@ -32,18 +29,14 @@ class PostsController < ApplicationController
 
   def update
     post = Post.find(params[:id])
-    if post.update(user_id: current_user.id,
-                      title: post_params[:title],
-                    content: post_params[:content], 
-                      price: post_params[:price],
-                        img: post_params[:img])
+    if post.update(post_params)
       redirect_to posts_path
     else
       render action: :edit
     end
   end
 
-  def destroy!
+  def destroy
     @post = Post.find(params[:id])
     @post.destroy!
     redirect_to posts_path
@@ -51,6 +44,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:user_id, :title, :content, :price, :img)
+      params.require(:post).permit(:title, :content, :price, :img).merge(user_id: current_user.id)
     end
 end
