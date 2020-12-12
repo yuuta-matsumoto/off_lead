@@ -7,15 +7,12 @@ ruby '2.6.3'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
 # Use sqlite3 as the database for Active Record
 gem 'bootstrap'
-# ログイン機能
-gem 'devise'
-# 日本語化
-gem 'rails-i18n', '~> 6.0'
-gem 'devise-i18n'
-# Bootstrap
+gem 'devise' # ログイン機能
+gem 'rails-i18n', '~> 6.0' # 日本語化
+gem 'devise-i18n' # 日本語化
 gem 'devise-bootstrap-views', '~> 1.0'
-
-gem 'sqlite3', '~> 1.4'
+gem 'carrierwave', '~> 2.0' #画像のアップロード
+gem 'sqlite3', '~> 1.4' #データベース 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -40,6 +37,10 @@ gem 'bootsnap', '>= 1.4.2'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails'  # rails console(もしくは、rails c)でirbの代わりにpryを使われる
+  gem 'pry-doc'    # methodを表示
+  gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
+  gem 'pry-stack_explorer' # スタックをたどれる
 end
 
 group :development do

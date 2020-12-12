@@ -1,0 +1,36 @@
+<div class="d-flex align-items-center">
+  <h1>投稿一覧</h1>
+  <div class="ml-auto posts_button">
+    <%= link_to '投稿する', new_post_path, class: "btn btn-outline-info"%>
+  </div>
+</div>
+
+<table class="table table-bordered border-success table-hover table-sm posts_table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="width: 40px">No.</th>
+      <th scope="col">プラン名</th>        
+      <th scope="col" style="width: 700px">詳細</th>
+      <th scope="col">金額</th>
+      <th scope="col">投稿日時</th>
+      <th scope="col">更新日時</th>
+      <th scope="col">投稿詳細</th>
+      <th scope="col">削除</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= @posts.each do |post| %>
+      <tr>
+        <th><%= post.id %></th>
+        <a href=""><td><%= post.title%></td></a>
+        <td><%= post.content %></td>
+        <td><%= post.price %>円(税込み)</td>
+        <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td><%= link_to '詳細', post, class: 'btn btn-outline-info' %></td>
+        <td><%= link_to '削除', post, class: 'btn btn-outline-info', method: :delete %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
