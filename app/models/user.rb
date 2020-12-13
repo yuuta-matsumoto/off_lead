@@ -6,5 +6,5 @@ class User < ApplicationRecord
          :confirmable, :lockable, :timeoutable, :trackable
   
   has_many :posts, dependent: :destroy
-
+  has_many :reviews
 end

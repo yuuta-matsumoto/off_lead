@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'reviews/new'
+  resources :reviews, :only => [:new, :create]
   resources :posts
   devise_for :users
   devise_for :views

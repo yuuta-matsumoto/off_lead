@@ -1,6 +1,6 @@
 <div class="d-flex align-items-center mt-4 mb-4">
     <div class="ml-auto posts_button">
-        <%= link_to '口コミを投稿する', reviews_new_path, class: "btn btn-outline-info" %>
+        <%= link_to '口コミを投稿する', new_review_path, class: "btn btn-outline-info" %>
         <%= link_to '投稿一覧', posts_path, class: "btn btn-outline-info"%>
         <%= link_to '編集', edit_post_path, class: "btn btn-outline-info"%>
     </div>
@@ -20,3 +20,9 @@
     <p class="text-right font-weight-bold mr-10"><%= @post.price %>円(税込み)</p>
   </div>
 </div>
+
+<h2>この投稿の口コミ</h2>
+<%= @reviews.each do |review| %>
+  <%= review.title %>
+  <%= review.content %>
+<% end %>
