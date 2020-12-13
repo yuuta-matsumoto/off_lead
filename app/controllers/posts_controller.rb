@@ -22,6 +22,7 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @reviews = @post.reviews
+    @review = @post.reviews.new
   end
 
   def edit

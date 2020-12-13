@@ -1,12 +1,7 @@
 class ReviewsController < ApplicationController
 
-  def new
-    @review = Review.new
-  end
-
   def create
-    @review = Review.new(review_params)
-    binding.pry
+  @review = current_user.reviews.new(review_params)
     if @review.save
       flash[:success] = "口コミを投稿しました"
       redirect_to post_path
@@ -16,6 +11,6 @@ class ReviewsController < ApplicationController
   end
   private
     def review_params
-      params.require(:review).permit(:title, :content)
+      params.require(:review).permit(:post_id, :user_id, :title, :content)
     end
 end
