@@ -2,7 +2,6 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.new(review_params)
-    binding.pry
     @review.save
     redirect_to request.referer
   end

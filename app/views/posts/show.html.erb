@@ -21,21 +21,30 @@
 </div>
 
 <div class="comment-wrapper border-top mb-10">
-  <p class="mt-5">コメント一覧</p>
+  <h2 class="mt-5 text-center">コメント一覧</h2>
   <% @reviews.each do |review| %>
     <div>
       <%= review.title %>
       <%= review.content %>
     </div>
   <% end %>
+  <h2 class='m-5 0 text-center'>口コミを投稿する</h2>
   <% if user_signed_in? %>
     <%= form_for @review do |f| %>
-      <%= f.label 'タイトル'%>
-      <%= f.text_field :title, class: "form-control"%>
-      <%= f.label '内容'%>
-      <%= f.text_area :content, class: "form-control", rows: 5%>
+    <div class="form-group row">
+      <%= f.label 'タイトル', class: 'col-md-2 col-form-label'%>
+      <div class="col-md-9">
+        <%= f.text_field :title, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label '内容', class: 'col-md-2 col-form-label'%>
+      <div class="col-md-9">
+        <%= f.text_area :content, class: "form-control", rows: 5%>
+      </div>
+    </div>
       <%= f.hidden_field :post_id, class: "form-control" %>
-      <%= f.submit 'コメントする', class: 'btn btn-primary' %>
+      <%= f.submit '投稿する', class: 'mb-5 btn btn-primary' %>
     <% end %>
   <% end %>
 </div>
