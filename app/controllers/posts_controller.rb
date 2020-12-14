@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     if post.update(post_params)
       redirect_to posts_path
     else
-      render action: :edit
+      render action: :new
     end
   end
 
@@ -46,6 +46,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content, :price, :img).merge(user_id: current_user.id)
+      params.require(:post).permit(:title, :content, :price, :img).merge(user_id: current_user.id, post_id:[post_id])
     end
 end

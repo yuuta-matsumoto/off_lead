@@ -313,5 +313,5 @@ Devise.setup do |config|
   # 5回以上認証できなかったらロックする
   config.unlock_strategy = :email
   config.maximum_attempts = 4
-  config.timeout_in = 3.minutes
+  config.timeout_in = 1.month
 end

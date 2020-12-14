@@ -20,19 +20,13 @@
   </div>
 </div>
 
-<div class="comment-wrapper border-top　mb-10">
+<div class="comment-wrapper border-top mb-10">
   <p class="mt-5">コメント一覧</p>
   <% @reviews.each do |review| %>
     <div>
-      <% unless review.user.blank? %>
-        <a href="<%= user_path(review.user_id) %>"><%= image_tag review.user.image.to_s,
-          class:"rounded-circle icon_image mr-3 mb-3"%></a>
-        <% end %>
-      <%= review.user.username unless review.user.blank? %>
-      <br/>
+      <%= review.title %>
       <%= review.content %>
     </div>
-    <br/>
   <% end %>
   <% if user_signed_in? %>
     <%= form_for @review do |f| %>
@@ -40,6 +34,7 @@
       <%= f.text_field :title, class: "form-control"%>
       <%= f.label '内容'%>
       <%= f.text_area :content, class: "form-control", rows: 5%>
+      <%= f.hidden_field :post_id, class: "form-control" %>
       <%= f.submit 'コメントする', class: 'btn btn-primary' %>
     <% end %>
   <% end %>
