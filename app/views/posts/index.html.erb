@@ -14,7 +14,6 @@
       <th scope="col">金額</th>
       <th scope="col">投稿日時</th>
       <th scope="col">更新日時</th>
-      <th scope="col">投稿詳細</th>
       <th scope="col">削除</th>
     </tr>
   </thead>
@@ -23,12 +22,11 @@
     <% @posts.each do |post| %>
       <tr>
         <th><%= post.id %></th>
-        <a href=""><td><%= post.title%></td></a>
+        <td><%= link_to post.title, post %></td>
         <td><%= post.content %></td>
         <td><%= post.price %>円(税込み)</td>
         <td><%= post.created_at.strftime('%Y/%m/%d %H:%M') %></td>
         <td><%= post.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
-        <td><%= link_to '詳細', post, class: 'btn btn-outline-info' %></td>
         <td><%= link_to '削除', post, class: 'btn btn-outline-info', method: :delete %></td>
       </tr>
     <% end %> 

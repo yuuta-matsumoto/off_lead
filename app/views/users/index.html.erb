@@ -1,5 +1,26 @@
 <h1>ユーザー一覧ページ</h1>
-<%= @users.each do |user| %>
-  <%= link_to user.name, user %>
-  <%= %>
-<% end %>
+
+<table class="table table-bordered border-success table-hover table-sm posts_table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" style="width: 40px">No.</th>
+      <th scope="col">ユーザー名</th>        
+      <th scope="col" style="width: 700px">自己紹介</th>
+      <th scope="col">投稿日時</th>
+      <th scope="col">更新日時</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th><%= user.id %></th>        
+        <td><%= link_to user.name, user %></td>
+        <td><%= user.content %></td>
+        <td><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+        <td><%= user.updated_at.strftime('%Y/%m/%d %H:%M') %></td>
+      </tr>
+    <% end %> 
+  </tbody>
+</table>
+
