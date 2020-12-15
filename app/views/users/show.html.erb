@@ -1,5 +1,7 @@
 <h1><%=@user.name%>さんのページ</h1>
 
+<div><%= image_tag @user.img_url if @user.img? %></div>
+
 <table class="table table-bordered border-success table-hover table-sm posts_table">
   <thead class="thead-dark">
     <tr>
