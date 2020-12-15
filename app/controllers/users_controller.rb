@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       if @isRoom #true（すでにroomがある）なら何も起きない
       else #false(room)が未作成なら新しいインスタンスを作成するためのnewを記述
         @room = Room.new
+        binding.pry
         @entry = Entry.new
       end
     end
