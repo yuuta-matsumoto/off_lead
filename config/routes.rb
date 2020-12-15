@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'rooms/create'
+  get 'rooms/show'
   #レビュー
   resources :reviews, :only => [:create]
   #投稿
