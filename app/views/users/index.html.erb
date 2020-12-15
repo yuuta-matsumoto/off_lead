@@ -1,5 +1,4 @@
 <h1>ユーザー一覧ページ</h1>
-<%= @users.each do |u| %>
-  <%= u.username%>
-  <%= link_to '詳細' user_path %>
+<%= @users.each do |user| %>
+  <%= link_to user.username, user %>
 <% end %>
