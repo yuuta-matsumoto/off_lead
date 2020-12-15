@@ -1,4 +1,5 @@
 <h1>ユーザー一覧ページ</h1>
 <%= @users.each do |user| %>
-  <%= link_to user.username, user %>
+  <%= link_to user.name, user %>
+  <%= %>
 <% end %>
