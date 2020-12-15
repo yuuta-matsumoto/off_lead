@@ -6,8 +6,7 @@ Rails.application.routes.draw do
   #ユーザー
   devise_for :users
   devise_for :views
-  get 'users/index'
-  get 'users/show'
+  resources :users, :only => [:index, :show] 
   
   root 'pages#index'
   get 'pages/show'
