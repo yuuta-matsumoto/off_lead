@@ -3,7 +3,6 @@
 <table class="table table-bordered border-success table-hover table-sm posts_table">
   <thead class="thead-dark">
     <tr>
-      <th scope="col" style="width: 40px">No.</th>
       <th scope="col">ユーザー名</th>        
       <th scope="col" style="width: 700px">自己紹介</th>
       <th scope="col">投稿日時</th>
@@ -14,7 +13,6 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <th><%= user.id %></th>        
         <td><%= link_to user.name, user %></td>
         <td><%= user.content %></td>
         <td><%= user.created_at.strftime('%Y/%m/%d %H:%M') %></td>
