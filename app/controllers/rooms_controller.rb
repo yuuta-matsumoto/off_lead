@@ -2,7 +2,8 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @room = Room.create #form_forで送られてきたパラメーターをcreateする 
+    #form_forで送られてきたパラメーターをcreateする
+    @room = Room.create(user_id: current_user.id)
     #現在ログインしているユーザーのentry
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
     #メッセージされる側のentry
@@ -17,7 +18,7 @@ class RoomsController < ApplicationController
     if Entry.where(user_id: current_user.id, room_id: @room.id).present?
       @messages = @room.messages #@roomと紐づいたメッセージを表示する
       @message = Message.new #messageのインスタンスを作成するため
-      @entries = room.entries #ユーザーの名前などの情報を表示するため
+      @entries = @room.entries #ユーザーの名前などの情報を表示するため
     else
       redirect_back(fallback_location: root_path) #前のページに戻す
     end
