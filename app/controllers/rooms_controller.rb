@@ -2,14 +2,13 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    #form_forで送られてきたパラメーターをcreateする
-    @room = Room.create(user_id: current_user.id)
+    @room = Room.create
     #現在ログインしているユーザーのentry
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
     #メッセージされる側のentry
     #fields_forから送られてきたparams(:user_id, room_id)を許可する
-    @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id))
-    redirect_to "/rooms/#{@room.id}" #createしたらメッセージルームが表示される
+    @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))
+    redirect_to "/rooms/#{@room.id}"
   end
 
   def show
