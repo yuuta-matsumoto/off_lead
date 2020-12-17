@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     #いいね
     resources :likes, :only => [:create, :destroy]
   end
+  get 'users/:id/likes' => 'likes#index'
   #ユーザー
   devise_for :users
   devise_for :views

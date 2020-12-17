@@ -1,0 +1,10 @@
+<h3>いいねした投稿</h3>
+<div>
+<% @user.liked_posts.each do |post| %>
+  <div><%= post.title %></div>
+  <div><%= post.content %></div>
+  <div><%= post.price %>円(税込み)</div>
+<% end %>
+</div>
+<%= link_to "ユーザー一覧へ", users_path %>
+<%= link_to "ホームへ戻る", posts_path %>
