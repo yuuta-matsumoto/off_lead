@@ -2,6 +2,11 @@
     <div class="ml-auto posts_button">
         <%= link_to '投稿一覧', posts_path, class: "btn btn-outline-info"%>
         <%= link_to '編集', edit_post_path, class: "btn btn-outline-info"%>
+        <% if current_user.already_liked?(@post)%>
+          <%= button_to 'いいね！', post_like_path(@post), method: :delete, class: "btn btn-danger"%>
+        <% else %>
+          <%= button_to 'いいね！', post_likes_path(@post), class: "btn btn-outline-danger"%>
+        <% end %>
     </div>
 </div>
 
