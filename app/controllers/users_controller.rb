@@ -27,4 +27,8 @@ class UsersController < ApplicationController
     end
   end
 
+  def likes
+    @user = User.find_by(id: params[:id])
+  end
+
 end
