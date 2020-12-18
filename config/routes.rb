@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'messages/create'
   #レビュー
   resources :reviews, :only => [:create]
   #投稿
@@ -7,7 +8,10 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :views
   resources :users, :only => [:index, :show] 
-  
+  #メッセージ
+  resources :messages, :only => [:create]
+  #トークルーム
+  resources :rooms, :only => [:create, :show]
   root 'pages#index'
   get 'pages/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
