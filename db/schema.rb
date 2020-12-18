@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_16_200854) do
+
+ActiveRecord::Schema.define(version: 2020_12_18_083435) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_12_16_200854) do
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id", null: false
     t.string "title"
     t.text "content"
     t.string "price"
@@ -58,6 +59,7 @@ ActiveRecord::Schema.define(version: 2020_12_16_200854) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.float "rate", default: 0.0, null: false
     t.index ["post_id"], name: "index_reviews_on_post_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
