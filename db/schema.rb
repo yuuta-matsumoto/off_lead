@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_15_054950) do
+ActiveRecord::Schema.define(version: 2020_12_18_083435) do
 
   create_table "entries", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_054950) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.integer "user_id"
+    t.integer "user_id", null: false
     t.string "title"
     t.text "content"
     t.string "price"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_15_054950) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.float "rate", default: 0.0, null: false
     t.index ["post_id"], name: "index_reviews_on_post_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
