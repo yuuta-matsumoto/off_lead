@@ -1,20 +1,26 @@
 Rails.application.routes.draw do
-  get 'messages/create'
+  #rootパス
+  root 'pages#index'
   #レビュー
   resources :reviews, :only => [:create]
   #投稿
-  resources :posts
-  #ユーザー
+  resources :posts do
+    #いいね
+    resources :likes, :only => [:create, :destroy]
+  end
+  #ユーザー関連
   devise_for :users
   devise_for :views
   resources :users, :only => [:index, :show] 
+  #ナビバーの「いいねした投稿」を開くとログインしているユーザーのいいね一覧ページに飛ぶ
+  get 'users/:id/likes' => 'users#likes'
   #メッセージ
   resources :messages, :only => [:create]
   #トークルーム
   resources :rooms, :only => [:create, :show]
-  root 'pages#index'
+  #ログイン直後に遷移するページ
   get 'pages/show'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # ログアウト
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end

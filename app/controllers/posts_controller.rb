@@ -3,6 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    @user = User.find_by(params[:id])
   end
 
   def new
@@ -23,6 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @reviews = @post.reviews
     @review = @post.reviews.new
+    @like = Like.new 
   end
 
   def edit

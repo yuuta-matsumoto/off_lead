@@ -12,7 +12,7 @@ gem 'rails-i18n', '~> 6.0' # 日本語化
 gem 'devise-i18n' # 日本語化
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'carrierwave', '~> 2.0' #画像のアップロード
-gem 'sqlite3', '~> 1.4' #データベース 
+gem 'mysql2'#データベース 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
