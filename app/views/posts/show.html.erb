@@ -48,6 +48,25 @@
         <%= f.text_area :content, class: "form-control", rows: 5%>
       </div>
     </div>
+
+    <!-- 星評価-->
+    <div class="form-group row" id="star">
+      <%= f.label :rate,'評価', class:'col-md-3 col-form-label' %>
+      <%= f.hidden_field :rate, id: :review_star %>
+    </div>
+
+    <!-- 星評価javascript -->
+    <script>
+    $('#star').raty({
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      scoreName: 'post[rate]',
+      half: true,
+    });
+    </script>  
+      
       <%= f.hidden_field :post_id, class: "form-control" %>
       <%= f.submit '投稿する', class: 'mb-5 btn btn-primary' %>
     <% end %>
