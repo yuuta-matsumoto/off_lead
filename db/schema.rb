@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_083435) do
+ActiveRecord::Schema.define(version: 2020_12_20_030134) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -40,6 +40,23 @@ ActiveRecord::Schema.define(version: 2020_12_18_083435) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "post_id"
+    t.integer "message_id"
+    t.integer "review_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["message_id"], name: "index_notifications_on_message_id"
+    t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["review_id"], name: "index_notifications_on_review_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "title"
@@ -58,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_083435) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.float "rate", default: 0.0, null: false
     t.index ["post_id"], name: "index_reviews_on_post_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end
