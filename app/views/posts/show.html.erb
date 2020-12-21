@@ -26,13 +26,25 @@
 </div>
 
 <div class="comment-wrapper border-top mb-10">
-  <h2 class="mt-5 text-center">コメント一覧</h2>
-  <% @reviews.each do |review| %>
-    <div>
-      <%= review.title %>
-      <%= review.content %>
-    </div>
-  <% end %>
+  <h2 class="mt-5 text-center">口コミ一覧</h2>
+
+    <% @reviews.each do |r| %>
+        <p><%= r.title %></p>
+        <p><%= r.content %></p>
+        <h4 class="mb-3">評価：<%= r.rate %> </h4>
+        <div id="star-rate-<%= r.id %>"></div>
+        <script>
+              $('#star-rate-<%= r.id %>').raty({
+                size: 30,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                score: <%= r.rate %>,
+            });
+        </script> 
+    <% end %>
+
   <h2 class='m-5 0 text-center'>口コミを投稿する</h2>
   <% if user_signed_in? %>
     <%= form_for @review do |f| %>
@@ -58,11 +70,11 @@
     <!-- 星評価javascript -->
     <script>
     $('#star').raty({
-      size     : 36,
+      size     : 30,
       starOff:  '<%= asset_path('star-off.png') %>',
       starOn : '<%= asset_path('star-on.png') %>',
       starHalf: '<%= asset_path('star-half.png') %>',
-      scoreName: 'post[rate]',
+      scoreName: 'review[rate]',
       half: true,
     });
     </script>  
