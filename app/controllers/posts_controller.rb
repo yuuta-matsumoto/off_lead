@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @reviews = @post.reviews
     @review = @post.reviews.new
-    @like = Like.new 
+    @like = Like.new
   end
 
   def edit

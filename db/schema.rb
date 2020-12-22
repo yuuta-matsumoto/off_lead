@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_083435) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.float "rate", default: 0.0, null: false
     t.index ["post_id"], name: "index_reviews_on_post_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

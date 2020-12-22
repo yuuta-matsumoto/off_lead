@@ -6,6 +6,8 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -13,13 +15,7 @@
     <%= render 'layouts/header' %>
     <%= yield %>
 
-    <footer>
-      <h2>オフリード</h2>
-      <ul>
-        <li><a href="#">利用規約</li>
-        <li><a href="#">プライバシーポリシー</a></li>
-        <li><a href="#">お問い合わせ</a></li>
-      </ul>
-    </footer>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
+
