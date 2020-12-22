@@ -6,7 +6,11 @@ class LikesController < ApplicationController
   end
 
   def create
-    @like = current_user.likes.create(post_id: params[:post_id])
+    @like = current_user.likes.build(post_id: params[:post_id])
+    @post = @like.post
+    @like.save
+    post = Post.find(params[:post_id])
+    post.create_notification_like!(current_user)
     redirect_back(fallback_location: root_path)
   end
 
