@@ -5,8 +5,8 @@ Rails.application.routes.draw do
   resources :reviews, :only => [:create]
   #投稿
   resources :posts do
-    #いいね
-    resources :likes, :only => [:create, :destroy]
+  #いいね
+  resources :likes, :only => [:create, :destroy]
   end
   #ユーザー関連
   devise_for :users
@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   resources :messages, :only => [:create]
   #トークルーム
   resources :rooms, :only => [:create, :show]
+  #通知
+  resources :notifications, :only => [:index]
   #ログイン直後に遷移するページ
   get 'pages/show'
   # ログアウト
