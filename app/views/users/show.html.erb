@@ -50,7 +50,7 @@
 <% if user_signed_in? %>
   <% unless @user == current_user %>
     <% if current_user.following?(@user) %>
-      <%= link_to unfollow_path(@user.id), method: :delete, :style=>"color:#E0245E;" do %>
+      <%= link_to unfollow_path(@user.id), method: :delete do %>
         <p class="btn btn-primary btn-lg">フォローを外す</p>
       <% end %>
     <% else %>
@@ -61,3 +61,10 @@
   <% end %>
 <% end %>
 </div>
+
+<a href="<%= following_user_path(@user) %>">
+  <%= @user.following.count %> following
+</a>
+<a href="<%= follower_user_path(@user) %>">
+  <%= @user.follower.count %> followers
+</a>
