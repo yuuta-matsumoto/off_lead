@@ -16,6 +16,7 @@
   @extend .alert-danger;
 }
 
+
 .main {
   background-image: url("4019821_m.jpg");
   background-size: cover;
@@ -25,6 +26,41 @@
   background-position: center center;
 }
 
+
+.nav-link {
+  list-style-type: none;
+  color: black;
+  font-weight: lighter; 
+  font-size: 15px;
+  border-left: 1px solid gray;
+  margin-left: 10px;
+  margin-bottom: 28px;
+  text-align: center;
+  flex-grow: 1;
+}
+
+.last-item {
+  border-right: 1px solid gray;
+}
+
+.nav-link:hover {
+  color: orange;
+  opacity: 0.9;
+}
+
 #header-logo {
-  margin-top: -10px;
+  margin-top: -20px;
+  margin-left: 15px;
+}
+
+#catchphrase {
+  display: inline-block;
+  letter-spacing: 10px;
+  margin: 326px 0 0px 30px;
+  font-size: 20px;
+  background-color:rgba(153, 153, 153, 0.212);
+  height: 80px;
+  text-align: center;
+  padding: 20px 0 0 20px;
+  font-weight: bold;
 }

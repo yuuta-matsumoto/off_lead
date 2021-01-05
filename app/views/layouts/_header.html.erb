@@ -1,13 +1,13 @@
 <div class="main">
   <header>
-      <nav class="navbar navbar-transparent">
+      <nav class="navbar navbar-transparent navbar-expand-lg">
       <div class="navbar" id="header-logo">
         <a href="/" alt="オフリード" id="header-logo">
           <%= image_tag "offlead.png", :size => '200x200'%>
         </a>
       </div>
         <div id="navbar">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav" id="navul">
             <% if user_signed_in? %>
               <li class="nav-item active">
                 <%= link_to 'ユーザー一覧', users_path ,class: 'nav-link' %>
@@ -22,7 +22,7 @@
                 <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
               </li>
               <li class="nav-item active">
-                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+                <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link last-item' %>
               </li>
             <% else %>
               <li class="nav-item active">
@@ -32,11 +32,16 @@
                 <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
               </li>
               <li class="nav-item active">
-                <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
+                <%= link_to "ログイン", new_user_session_path, class: 'nav-link last-item' %>
               </li>
             <% end %>
           </ul>
         </div>
       </nav>
   </header>
+  <!-- キャッチフレーズ -->
+  <h2 id="catchphrase">
+    愛犬と”本当の信頼関係”を作りませんか？<br>
+    オフリードはあなたの愛犬に合ったドッグトレーナーが見つかる場所です。
+  </h2>
 </div>
