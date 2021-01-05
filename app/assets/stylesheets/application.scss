@@ -16,6 +16,12 @@
   @extend .alert-danger;
 }
 
+//共通
+div.clearfix {
+  clear: both;
+}
+
+// ヘッダー
 
 .main {
   background-image: url("4019821_m.jpg");
@@ -64,3 +70,45 @@
   padding: 20px 0 0 20px;
   font-weight: bold;
 }
+
+// フッター
+
+footer {
+  background-color: rgba(247, 226, 217, 0.8);
+  height: 150px;
+    a#footer-logo {
+      float: left;
+    }
+}
+
+div#footer-inner {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+    ul {
+      list-style: none;
+      margin: 70px 300px 0 0; 
+      float: right;
+        li {
+          margin-left: 20px;
+          float: left;
+            a {
+              text-decoration: none;
+              color: gray;
+                &:hover {
+                  text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
+//後で横幅を揃える
+div#copyright span {
+  display: inline-block;
+  color: gray;
+  margin: auto;
+  position: absolute;
+  margin: 120px 0 0 295px;
+}
+

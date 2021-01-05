@@ -1,10 +1,19 @@
 <!--footerを記述-->
 <footer>
-  <h2>オフリード</h2>
-  <ul>
-    <li><a href="#">利用規約</li>
-    <li><a href="#">プライバシーポリシー</a></li>
-    <li><%= mail_to 'dog.offlead@gmail.com', 'お問い合わせ',
-         :body => "↓以下にお問い合わせ内容をご記入の上送信してください↓"%></li>
-  </ul>
+  <div id="footer-inner">
+    <a href="/" alt="オフリード" id="footer-logo">
+      <%= image_tag "offlead.png", :size => '150x150'%>
+    </a>
+
+    <ul>
+      <li><a href="#">利用規約</li>
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><%= mail_to 'dog.offlead@gmail.com', 'お問い合わせ',
+          :body => "↓以下にお問い合わせ内容をご記入の上送信してください↓"%></li>
+    </ul>
+
+    <div id="copyright">
+      <span>© Copyright 2021 ABC Inc. All Rights Reserved.</span>
+    </div>
+  </div>
 </footer>
