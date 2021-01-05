@@ -26,9 +26,18 @@ class UsersController < ApplicationController
       end
     end
   end
-
+  #いいね機能のメソッド
   def likes
     @user = User.find_by(id: params[:id])
+  end
+
+  #フォロー機能のメソッド
+  def following
+    @user  = User.find(params[:id])
+  end
+
+  def follower
+    @user  = User.find(params[:id])
   end
 
 end
