@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   #トークルーム
   resources :rooms, :only => [:create, :show]
   #ログイン直後に遷移するページ
-  get 'pages/show'
+  get 'pages/top'
   # ログアウト
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
