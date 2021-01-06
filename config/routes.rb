@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #rootパス
-  root 'pages#index'
+  root 'pages#top'
   #フォロー
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
