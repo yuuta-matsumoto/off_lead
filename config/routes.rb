@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   #rootパス
   root 'pages#top'
+  #
+  get '/terms' => 'pages#terms'
+  #
+  get '/privacy' => 'pages#privacy'
   #フォロー
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
@@ -24,8 +28,6 @@ Rails.application.routes.draw do
   resources :messages, :only => [:create]
   #トークルーム
   resources :rooms, :only => [:create, :show]
-  #ログイン直後に遷移するページ
-  get 'pages/top'
   # ログアウト
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'

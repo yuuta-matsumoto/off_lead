@@ -1,9 +1,8 @@
 class PagesController < ApplicationController
-  before_action :sign_in_required, only: [:show]
 
-  def index
+  def terms
   end
 
-  def show
+  def privacy
   end
 end
