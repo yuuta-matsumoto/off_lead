@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "users";
 // max-width
 
 .mw-md {
@@ -55,7 +55,6 @@ div.clearfix {
 }
 
 #header-logo {
-  margin-top: -20px;
   margin-left: 15px;
 }
 
@@ -79,7 +78,7 @@ footer {
     a#footer-logo {
       position: absolute;
       float: left;
-      margin: 25px 0 0 180px;
+      margin: 40px 0 0 180px;
 
     }
 }
