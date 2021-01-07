@@ -1,108 +1,160 @@
 @import "bootstrap";
 @import "users";
-// max-width
+@import "pages";
 
-.mw-md {
-  max-width: 576px;
+
+/*==========================================================
+  HTML5 Doctor Reset CSS
+============================================================*/
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
 }
 
-// 「ログインしました」などのフラッシュ用スタイル
-
-.alert-notice {
-  @extend .alert-info;
+body {
+    line-height:1;
 }
 
-.alert-alert {
-  @extend .alert-danger;
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
 }
 
-//共通
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+
+/*===========================================================
+  全体の設定
+============================================================*/
+
+body {
+  background-color:#fff;
+  font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  color: rgb(51, 51,51);
+  font-size: 14px;
+}
+
 div.clearfix {
   clear: both;
 }
 
-// ヘッダー
-
-.main {
-  background-image: url("4019821_m.jpg");
-  background-size: cover;
-  width: 100%;
-  height: 800px;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
 
 
-.nav-link {
-  list-style-type: none;
-  color: black;
-  font-weight: lighter; 
-  font-size: 15px;
-  border-left: 1px solid gray;
-  margin-left: 10px;
-  margin-bottom: 28px;
-  text-align: center;
-  flex-grow: 1;
-}
-
-.last-item {
-  border-right: 1px solid gray;
-}
-
-.nav-link:hover {
-  color: orange;
-  opacity: 0.9;
-}
-
-#header-logo {
-  margin-left: 15px;
-}
-
-#catchphrase {
-  display: inline-block;
-  letter-spacing: 10px;
-  margin: 326px 0 0px 30px;
-  font-size: 20px;
-  background-color:rgba(153, 153, 153, 0.212);
-  height: 80px;
-  text-align: center;
-  padding: 20px 0 0 20px;
-  font-weight: bold;
-}
-
-// フッター
+/*===========================================================
+  フッター
+============================================================*/
 
 footer {
   background-color: rgba(247, 226, 217, 0.8);
   height: 150px;
-    a#footer-logo {
-      position: absolute;
-      float: left;
-      margin: 40px 0 0 180px;
-
-    }
+  a#footer-logo {
+    position: absolute;
+    float: left;
+    margin: 40px 0 0 180px;
+  }
 }
 
 div#footer-inner {
   width: 960px;
   height: auto;
   margin: 0 auto;
-    ul {
-      list-style: none;
-      margin: 70px 300px 0 0; 
-      float: right;
-        li {
-          margin-left: 20px;
-          float: left;
-            a {
-              text-decoration: none;
-              color: gray;
-                &:hover {
-                  text-decoration: underline;
-                }
-            }
+  ul {
+    list-style: none;
+    margin: 70px 300px 0 0; 
+    float: right;
+    li {
+      margin-left: 20px;
+      float: left;
+      a {
+        text-decoration: none;
+        color: gray;
+        &:hover {
+          text-decoration: underline;
         }
+      }
     }
+  }
 }
 
 //後で横幅を揃える
