@@ -3,9 +3,12 @@
 @import "pages";
 
 
+
 /*==========================================================
   HTML5 Doctor Reset CSS
 ============================================================*/
+
+
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -108,6 +111,8 @@ input, select {
   全体の設定
 ============================================================*/
 
+
+
 body {
   background-color:#fff;
   font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
@@ -122,8 +127,63 @@ div.clearfix {
 
 
 /*===========================================================
+  デフォルトのヘッダー
+============================================================*/
+
+
+
+header {
+  height: 120px;
+  widows: 0 auto;
+  padding: 5px;
+  border-bottom: 1px solid rgb(202, 202, 202);
+  background-color: #fff;
+  .header-box {
+    height: 110px;
+    width: 1120px;
+    background-color: white;
+    margin: 0 auto;
+    .header-icon {
+      float: left;
+    }
+  }
+  .header-item-box {
+    nav {
+      float: right;
+      margin: 35px 35px 0 0;
+      ul {
+        list-style: none;
+        li {
+          float: left;
+          margin-left: 20px;
+          border-left: 1px solid gray;
+          padding-left: 10px;
+          .header-last-item {
+            display: inline-block;
+            border-right: 1px solid gray;
+            padding-right: 10px;
+          }
+          .header-item {
+            list-style-type: none;
+            color: rgb(51, 51, 51);
+            &:hover {
+              color: orange;
+              opacity: 0.9;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*===========================================================
   フッター
 ============================================================*/
+
+
 
 footer {
   background-color: rgba(247, 226, 217, 0.8);
