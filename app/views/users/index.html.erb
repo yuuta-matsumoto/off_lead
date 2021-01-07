@@ -1,25 +1,26 @@
 <%= render "/layouts/header" %>
 
-<div class="main">
-  <div class="wrapper">
+<div class="users-main">
+  <div class="users-main-wrapper">
+    <h1>ユーザー一覧</h1>
+    <a href=""></a>
+    <div class="users-box">
+    <ul>
+      <% @users.each do |user| %>
+          <li class="users-box-left-info">
+              <% if user.img? %>
+                <img src='<%= user.img %>' alt="ユーザーアイコン" width="110" height="110">
+              <% else %>
+                <img src="/assets/default.png" alt="ユーザーアイコン" width="110" height="110">
+              <% end %>
+          </li>
+          <div class="users-box-right-info">
+              <li><%= link_to user.name, user, class: "users-name"%></li>
+              <li class="users-content"><%= user.content %></li>
+          </div>
+          <div class="clearfix"></div>
+      <% end %>
+      </ul>
+    </div> 
   </div>
 </div>
-
-
-
-  <div id="users-inner">
-    <h1 id="index">ユーザー一覧</h1>
-    <% @users.each do |user| %>
-      <ul id="users">
-        <li class="left-content"><% if user.img? %>
-              <img src='<%= user.img %>' class="icon" alt="ユーザーアイコン" width="100" height="100">
-            <% else %>
-              <img src="/assets/default.png" class="icon" alt="ユーザーアイコン" width="100" height="100">
-            <% end %>
-        </li>
-        <li class="right-content"><%= link_to user.name, user, class: "user-name"%></li>
-        <li class="right-content" id="user-content"><%= user.content %></li>
-        <div class="clearfix"></div>
-      </ul>
-    <% end %> 
-  </div>
