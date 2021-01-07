@@ -4,7 +4,6 @@
   <div class="users-main-wrapper">
     <h1>ユーザー一覧</h1>
     <%= paginate @users %>
-    <a href=""></a>
     <div class="users-box">
     <ul>
       <% @users.each do |user| %>
@@ -22,6 +21,9 @@
           <div class="clearfix"></div>
       <% end %>
       </ul>
-    </div> 
+      <div class="users-paginate-bottom">
+        <%= paginate @users %>
+      </div>
+    </div>
   </div>
 </div>
