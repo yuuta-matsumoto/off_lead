@@ -1,3 +1,4 @@
 <%= render "/layouts/header" %>
 
-<%= render partial: '/layouts/users_list', locals: {head: 'ユーザー一覧'} %>
+<%= render partial: '/layouts/users_list', 
+            locals: {head: 'ユーザー一覧', contents: @users} %>

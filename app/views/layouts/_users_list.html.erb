@@ -1,12 +1,12 @@
 <div class="users-main">
   <div class="users-main-wrapper">
     <h1><%= head %></h1>
-    <%= paginate @users %>
+    <%= paginate contents %>
     <div class="users-box">
     <ul>
-      <% @users.each do |user| %>
+      <% contents.each do |user| %>
           <li class="users-box-left-info">
-              <% if user.img? %>
+              <% if user.img?%>
                 <img src='<%= user.img %>' alt="ユーザーアイコン" width="110" height="110">
               <% else %>
                 <img src="/assets/default.png" alt="ユーザーアイコン" width="110" height="110">
@@ -17,10 +17,10 @@
               <li class="users-content"><%= user.content %></li>
           </div>
           <div class="clearfix"></div>
-      <% end %>
+          <% end %>
       </ul>
       <div class="users-paginate-bottom">
-        <%= paginate @users %>
+        <%= paginate contents %>
       </div>
     </div>
   </div>
