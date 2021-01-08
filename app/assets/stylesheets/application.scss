@@ -113,18 +113,18 @@ input, select {
 
 
 
-$primary_t1: #ffa900;
-$primary_t2: #cc8700;
-$primary_t3: #ffde9e;
-$primary_t4: #ffe6b7;
-$primary_t5: #845700;
-$primary_t6: #bc7d00;
-$primary_t7: #db9100;
-$primary_t8: #513600;
-$primary_t9: #ffedcc;
+$primary_t1: #ff8228;
+$primary_t2: #f36600;
+$primary_t3: #ffddc6;
+$primary_t4: #ffecdf;
+$primary_t5: #ac4800;
+$primary_t6: #e45f00;
+$primary_t7: #ff6d04;
+$primary_t8: #793200;
+$primary_t9: #fff8f3;
 
-$primary_shadow: rgba(255, 169, 0, 0.5);
-$primary_text_color_dark_bright: #f0f0f0;
+$primary_shadow: rgba(255, 130, 40, 0.5);
+$primary_text_color_dark_bright: #ffffff;
 
 
 .alert-primary {
@@ -169,6 +169,9 @@ button.bg-primary:focus {
   color: $primary_text_color_dark_bright;
   background-color: $primary_t1;
   border-color: $primary_t1;
+  font-size: 16px;
+  letter-spacing: 3px;
+  font-weight: bold;
 }
 
 .btn-primary:hover {

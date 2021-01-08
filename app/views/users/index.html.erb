@@ -1,29 +1,3 @@
 <%= render "/layouts/header" %>
 
-<div class="users-main">
-  <div class="users-main-wrapper">
-    <h1>ユーザー一覧</h1>
-    <%= paginate @users %>
-    <div class="users-box">
-    <ul>
-      <% @users.each do |user| %>
-          <li class="users-box-left-info">
-              <% if user.img? %>
-                <img src='<%= user.img %>' alt="ユーザーアイコン" width="110" height="110">
-              <% else %>
-                <img src="/assets/default.png" alt="ユーザーアイコン" width="110" height="110">
-              <% end %>
-          </li>
-          <div class="users-box-right-info">
-              <li><%= link_to user.name, user, class: "users-name"%></li>
-              <li class="users-content"><%= user.content %></li>
-          </div>
-          <div class="clearfix"></div>
-      <% end %>
-      </ul>
-      <div class="users-paginate-bottom">
-        <%= paginate @users %>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: '/layouts/users_list', locals: {head: 'ユーザー一覧'} %>
