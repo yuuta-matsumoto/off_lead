@@ -103,6 +103,8 @@ GEM
       devise (>= 4.7.1)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.15.1)
+      i18n (>= 1.6, < 2)
     ffi (1.13.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
@@ -283,6 +285,7 @@ DEPENDENCIES
   devise
   devise-bootstrap-views (~> 1.0)
   devise-i18n
+  faker
   jbuilder (~> 2.7)
   jquery-rails
   kaminari
