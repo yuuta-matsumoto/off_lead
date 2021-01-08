@@ -8,6 +8,11 @@
     height: 2100px;
     margin: 0 auto;
     padding: 50px;
+    p.users-title {
+      font-size: 30px;
+      font-weight: lighter;
+      margin-bottom: 40px;
+    }
     p.user-name-box {
       height: 46px;
       width: 300px;
@@ -19,10 +24,23 @@
       text-align: center;
       border-bottom: 1px solid gray;
     }
-    p.users-title {
+    p.users-following-box {
+      height: 50px;
+      width: 200px;
       font-size: 30px;
       font-weight: lighter;
       margin-bottom: 24px;
+      float: left;
+      margin:20px 0 0  325px;
+    }
+    p.users-follower-box {
+      height: 50px;
+      width: 200px;
+      font-size: 30px;
+      font-weight: lighter;
+      margin-bottom: 24px;
+      float: right;
+      margin: 20px 275px 0 0;
     }
     .users-box {
       height: 180px;

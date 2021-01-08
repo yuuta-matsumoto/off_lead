@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def index
-    @users = User.all.page(params[:page]).per(10)
+    @users = User.all.page(params[:page]).per(1)
   end
 
   def show
@@ -34,10 +34,12 @@ class UsersController < ApplicationController
   #フォロー機能のメソッド
   def following
     @user  = User.find(params[:id])
+    @followingUser = @user.following_user.all.page(params[:page]).per(1)
   end
 
   def follower
     @user  = User.find(params[:id])
+    @followerUser = @user.follower_user.all.page(params[:page]).per(1)
   end
 
 end

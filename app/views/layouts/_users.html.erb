@@ -1,0 +1,19 @@
+<div class="users-box">
+  <ul>
+    <% contents.each do |user| %>
+      <li class="users-box-left-info">
+        <% if user.img?%>
+          <img src='<%= user.img %>' alt="ユーザーアイコン" width="110" height="110">
+        <% else %>
+          <img src="/assets/default.png" alt="ユーザーアイコン" width="110" height="110">
+        <% end %>
+      </li>
+      <div class="users-box-right-info">
+        <li><%= link_to user.name, user, class: "users-name"%></li>
+        <li class="users-content"><%= user.content %></li>
+      </div>
+        <div class="clearfix"></div>
+    <% end %>
+  </ul>
+    <div class="users-paginate-bottom">
+</div>

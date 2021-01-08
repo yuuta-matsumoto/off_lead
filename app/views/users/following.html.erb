@@ -1,4 +1,11 @@
 <%= render "/layouts/header" %>
 
-<%= render partial: '/layouts/users_follow_list', 
-            locals: {head: 'フォロー中', contents: @user.following_user, foobar: @user} %>
+<div class="users-main">
+  <div class="users-main-wrapper">
+    <p class="user-name-box"><%= @user.name %></p>
+    <p class="users-following-box">フォロー中</p>
+    <p class="users-follower-box"><a href="<%= follower_user_path(@user) %>">フォロワー</a></p>
+      <div class="clearfix"></div>
+    <%= render partial: "/layouts/users", locals: {contents: @user.following_user, foobar: @user } %>
+  </div>
+</div>
