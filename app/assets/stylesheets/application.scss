@@ -1,6 +1,8 @@
 @import "bootstrap";
 @import "users";
 @import "pages";
+@import "valiables";
+
 
 
 
@@ -301,12 +303,12 @@ header {
   height: 120px;
   widows: 0 auto;
   padding: 5px;
-  border-bottom: 1px solid rgb(202, 202, 202);
+  border-bottom: 1px solid $border_color;
   background-color: #fff;
   .header-box {
     height: 110px;
-    width: 1120px;
-    background-color: white;
+    width: $main_width;
+    background-color: #fff;
     margin: 0 auto;
     .header-icon {
       float: left;
@@ -321,19 +323,19 @@ header {
         li {
           float: left;
           margin-left: 20px;
-          border-left: 1px solid gray;
+          border-left: 1px solid $border_color;
           padding-left: 10px;
           .header-last-item {
             display: inline-block;
-            border-right: 1px solid gray;
+            border-right: 1px solid $border_color;
             padding-right: 10px;
           }
           .header-item {
             list-style-type: none;
-            color: rgb(51, 51, 51);
+            color: $text_color;
             &:hover {
-              color: orange;
-              opacity: 0.9;
+              color: $main_color;
+              opacity: $hover_opacity;
             }
           }
         }
@@ -351,7 +353,7 @@ header {
 
 
 footer {
-  background-color: rgba(247, 226, 217, 0.8);
+  background-color: $sub_color;
   height: 150px;
   a#footer-logo {
     position: absolute;
@@ -385,7 +387,7 @@ div#footer-inner {
 //後で横幅を揃える
 div#copyright span {
   display: inline-block;
-  color: gray;
+  color: $text_sub_color;
   margin: auto;
   position: absolute;
   margin: 120px 0 0 295px;

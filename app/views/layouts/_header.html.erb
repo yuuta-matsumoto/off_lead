@@ -11,13 +11,11 @@
         <ul>
           <% if user_signed_in? %>
             <li><%= link_to 'ユーザー一覧', users_path, class: "header-item" %></li>
-            <li><%= link_to '投稿一覧', posts_path, class: "header-item" %></li>
-            <li><a href="/users/<%= current_user.id %>/likes" class="header-item">いいねした投稿</a></li>
             <li><%= link_to 'アカウント編集', edit_user_registration_path, class: "header-item" %></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path,
                     method: :delete, class: "header-last-item header-item"%></li>
           <% else %>
-            <li><%= link_to '投稿一覧', posts_path, class: "header-item" %></li>
+            <li><%= link_to 'ユーザー一覧', users_path, class: "header-item" %></li>
             <li><%= link_to "新規登録", new_user_registration_path, class: "header-item" %></li>
             <li><%= link_to "ログイン", new_user_session_path, class: "header-last-item header-item"%></li>
             <div class="clearfix"></div>

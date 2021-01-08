@@ -34,12 +34,12 @@ class UsersController < ApplicationController
   #フォロー機能のメソッド
   def following
     @user  = User.find(params[:id])
-    @followingUser = @user.following_user.all.page(params[:page]).per(1)
+    @users = @user.following.page(params[:page]).per(5)
   end
 
   def follower
     @user  = User.find(params[:id])
-    @followerUser = @user.follower_user.all.page(params[:page]).per(1)
+    @users = @user.follower.page(params[:page]).per(5)
   end
 
 end

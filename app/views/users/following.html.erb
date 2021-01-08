@@ -6,7 +6,7 @@
     <p class="users-following-box">フォロー中</p>
     <p class="users-follower-box"><a href="<%= follower_user_path(@user) %>">フォロワー</a></p>
       <div class="clearfix"></div>
-    <%= paginate @followingUser %>
+    <%= paginate @users%>
     <%= render partial: "/layouts/users", locals: {contents: @user.following_user, foobar: @user } %>
   </div>
 </div>
