@@ -1,9 +1,119 @@
-<h3><%= @user.name %>さんがいいねした投稿</h3>
-<div>
-<% @user.liked_posts.each do |post| %>
-  <div><%= post.title %></div>
-  <div><%= post.content %></div>
-  <div><%= post.price %>円(税込み)</div>
-<% end %>
+<%= render "/layouts/header" %>
+
+<div class="users-main">
+  <div class="users-main-wrapper">
+
+    <!-- //プロフィールボックス -->
+    <div class="user-profiel-box">
+      <div class="user-profiel-left-content">
+        <div class="user-image-box">
+
+          <% if @user.img?%>
+            <img src='<%= @user.img %>' alt="ユーザーアイコン" width="260" height="260">
+          <% else %>
+            <img src="/assets/default.png" alt="ユーザーアイコン" width="260" height="260">
+          <% end %>
+
+        </div>
+        <div class="user-button-box">
+          <!-- フォローボタン-->
+            <% if user_signed_in? %>
+              <% unless @user == current_user %>
+                <% if current_user.following?(@user) %>
+                  <%= link_to unfollow_path(@user.id), method: :delete do %>
+                    <p class="btn btn-primary btn-lg" id="follow-button">
+                      <span class="normal">フォロー中</span>
+                      <span class="hover">フォロー解除</span>
+                    </p>
+                  <% end %>
+                <% else %>
+                  <%= link_to follow_path(@user.id), method: :post do %>
+                    <p class="btn btn-primary btn-lg bg-white text-primary" id="follow-button">フォロー</p>
+                  <% end %>
+                <% end %>
+              <% end %>
+            <% end %>
+          <!-- メッセージボタン-->
+          <% unless @user.id == current_user.id %>
+            <% if @isRoom == true %> <!--すでにroomがあったら「メッセージへ」と表示してメッセージに飛ばす-->
+              <p id="message-button">
+                <a href="/rooms/<%=@roomId%>"><i class="far fa-envelope btn btn-lg" alt="メッセージを送る"></i></a> 
+              </p>
+            <% else %>
+              <%= form_with model: @room, local: true do |f| %>
+                <%= fields_for @entry do |e| %>
+                  <%= e.hidden_field :user_id, value: @user.id %> <!-- entryテーブルにuser_idを送る -->
+                <% end %>
+                <p id="message-button">
+                  <%= f.button type: "submit" do %>
+                    <i class="far fa-envelope btn-md" alt="メッセージを送る"></i>
+                  <% end %>
+                </p>
+              <% end %>
+            <% end %>
+            <!-- ログインしているのが自分だったら-->
+            <% else %>
+              <p>プロフィールを編集</p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="user-profiel-right-content">
+        <div class="user-name-box">
+          <%= @user.name%>さんのページ
+        </div>
+        <div class="user-content-box">
+          <%= @user.content%>
+        </div>
+        <div class="user-area-box"></div>
+      </div>
+        <div class="clearfix"></div>
+    </div>
+    <!-- プロフィールボックス//-->
+
+    <!-- //中央のナビゲーションバー-->
+    <div class="user-profiel-nav">
+      <nav>
+        <ul>
+          <li><%= link_to '投稿一覧', @user, class: "header-item" %></li>
+          <li><%= link_to 'フォロー中', following_user_path, class: "header-item"%></li>
+          <li><%= link_to 'フォワー', follower_user_path, class: "header-item"%></li>
+          <li><a href="/users/<%= current_user.id %>/likes" class="header-item header-last-item">いいね</a></li>
+            <div class="clearfix"></div>
+        </ul>
+      </nav>
+    </div>
+    <!-- 中央のナビゲーションバー//-->
+
+    <!-- //投稿一覧、フォロー中、フォロワー、いいねのボックス-->
+    <div class="user-bottom-box">
+      <div class="user-post-box">
+        <% @posts.each do |post| %>
+          <div class="post-image-box">
+            <% if post.img?%>
+              <img src='<%=post.img %>' alt="投稿の画像" width="190" height="190">
+            <% else %>
+              <img src="/assets/default.png" alt="投稿の画像" width="190" height="190">
+            <% end %>
+          </div> 
+          <div class="post-box-right">
+            <div class="post-title-box">
+              <%= post.title %>
+            </div>
+            <div class="post-content-box">
+              <%= post.content%>
+            </div>
+            <div class="post-review-box">
+            
+            </div>
+            <div class="post-price-box">
+              <%= post.price%>円(税込み)
+            </div>
+          </div>
+            <div class="clearfix"></div>
+        <a href="/posts/<%= post.id %>">aaaa</a>
+        <% end %>
+      </div>
+    <!-- 投稿一覧、フォロー中、フォロワー、いいねのボックス//-->
+  </div>
 </div>
-<%= link_to "ユーザー一覧へ", users_path %>
