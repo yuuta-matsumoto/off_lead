@@ -1,7 +1,3 @@
-<h1><%=@user.name%>さんのページ</h1>
-
-<div><%= image_tag @user.img_url if @user.img? %></div>
-
 <table class="table table-bordered border-success table-hover table-sm posts_table">
   <tbody>
     <% @posts.each do |post| %>
@@ -17,22 +13,6 @@
     <% end %> 
   </tbody>
 </table>
-
-<!-- メッセージボタンの条件分岐 -->
-<% unless @user.id == current_user.id %>
-  <% if @isRoom == true %> <!--すでにroomがあったら「メッセージへ」と表示してメッセージに飛ばす-->
-    <p class="user-show-room">
-      <a href="/rooms/<%=@roomId%>" class="btn btn-primary btn-lg">メッセージへ</a> 
-    </p>
-  <% else %>
-    <%= form_with model: @room, local: true do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, value: @user.id %> <!-- entryテーブルにuser_idを送る -->
-      <% end %>
-      <%= f.submit 'メッセージを送る', class: "btn btn-primary btn-lg user-show-room" %>
-    <% end %>
-  <% end %>
-<% end %>
 
 
 

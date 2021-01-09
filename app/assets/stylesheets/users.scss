@@ -129,6 +129,7 @@
   width: 1020px;
   margin: 0 auto;
   padding: 10px;
+  //左側
   .user-profiel-left-content {
     height: 100%;
     width: 340px;
@@ -140,6 +141,9 @@
       margin: 0 auto;
       padding: 20px;
       background-color: #fff;
+      img {
+        border-radius: 10px;
+      }
     }
     .user-button-box {
       height: 100px;
@@ -157,11 +161,32 @@
       }
     }
   }
+  //右側
   .user-profiel-right-content {
     height: 100%;
     width: 660px;
-    background-color: skyblue;
     float: right;
+    .user-name-box {
+      height: 50px;
+      width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 50px;
+      font-size: 25px;
+      margin-bottom: 40px;
+    }
+    .user-content-box {
+      height: 300px;
+      width: 600px;
+      margin: 0 auto;
+      font-size: 16px;
+      background-color: #fff;
+      border: 1px solid $border_color;
+      border-radius: 10px;
+      line-height: 24px;
+      padding: 5px;
+      overflow: auto;
+    }
   }
 }
 
