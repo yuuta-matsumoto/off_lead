@@ -199,3 +199,44 @@ p#message-button {
   margin-right: 20px;
 }
 
+
+
+.user-profiel-nav {
+  height: 51px;
+  width: 1020px;
+  margin: 0 auto;
+  border-bottom: 1px solid $border_color;
+  nav {
+    ul {
+      width: 100%;
+      list-style-type: none;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin-left: 20px;
+        padding-left: 10px;
+        height: 50px;
+        line-height: 50px;
+        width: 150px;
+        text-align: center;
+        &:hover {
+          background-color: $sub_color;
+        }
+        .header-last-item {
+          display: inline-block;
+          padding-right: 10px;
+        }
+        .header-item {
+          list-style-type: none;
+          color: $text_color;
+          font-size: 16px;
+          padding-right: 10px;
+          &:hover {
+            color: $main_color;
+            opacity: $hover_opacity;
+          }
+        }
+      }
+    }
+  }
+}

@@ -41,7 +41,7 @@ class UsersController < ApplicationController
 
   def follower
     @user  = User.find(params[:id])
-    @users = User.all.follower.page(params[:page]).per(5)
+    @users = User.all.page(params[:page]).per(5)
   end
 
 end
