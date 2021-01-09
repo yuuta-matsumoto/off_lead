@@ -1,5 +1,7 @@
 <%= render "/layouts/header" %>
 
 <div class="users-main">
-  <div class="users-main-wrapper"></div>
+  <div class="users-main-wrapper">
+    <%= render partial: "/layouts/users_profiel", locals: {contents: @user} %>
+  </div>
 </div>

@@ -43,7 +43,7 @@
       text-align: center;
       padding-top: 12px;
       &:hover {
-        background-color: $sub_color;
+        background-color: rgb(228, 228, 228);
       }
     }
     p.users-follower-box {
@@ -57,7 +57,7 @@
       text-align: center;
       padding-top: 12px;
       &:hover {
-        background-color: $sub_color;
+        background-color: rgb(228, 228, 228);
       }
     }
     .users-box {
@@ -123,4 +123,54 @@
 ============================================================*/
 
 
+
+.user-profiel-box {
+  height: 500px;
+  width: 1020px;
+  margin: 0 auto;
+  padding: 10px;
+  .user-profiel-left-content {
+    height: 100%;
+    width: 340px;
+    padding-top: 10px;
+    float: left;
+    .user-image-box {
+      height: 300px;
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+    }
+    .user-button-box {
+      height: 100px;
+      width: 300px;
+      margin: 35px auto 0 auto;
+      background-color: #fff;
+      p .hover {
+        display: none;
+      }
+      p:hover .normal{
+        display: none;
+      }
+      p:hover .hover {
+        display: inline;
+      }
+    }
+  }
+  .user-profiel-right-content {
+    height: 100%;
+    width: 660px;
+    background-color: skyblue;
+    float: right;
+  }
+}
+
+p#follow-button {
+  margin-left: 20px;
+}
+
+p#message-button {
+  float: right;
+  margin-right: 20px;
+}
 
