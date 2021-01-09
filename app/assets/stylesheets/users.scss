@@ -61,48 +61,59 @@
       padding: 5px 0;
       ul {
         list-style-type: none;
-        li.users-box-left-info {
-          height: 180px;
-          width: 140px;
-          float: left;
-          padding: 10px;
-          border-bottom: 1px solid $border_color;
-          img {
-            margin: 20px 5px;
-            border-radius: 5px;
+        .users-repeat-box {
+          width: 1020px;
+          height: 175px;
+          margin-bottom: 10px;
+          position: relative;
+          z-index: 1;
+          li.users-box-left-info {
+            height: 180px;
+            width: 140px;
+            float: left;
+            padding: 10px;
+            border-bottom: 1px solid $border_color;
+            img {
+              margin: 20px 5px;
+              border-radius: 5px;
+            }
           }
-        }
-        .users-box-right-info {
-          height: 180px;
-          width: 880px;
-          float: left;
-          border-bottom: 1px solid $border_color;
-          li {
-
-            .users-name {
+          .users-box-right-info {
+            height: 180px;
+            width: 880px;
+            float: left;
+            border-bottom: 1px solid $border_color;
+            li.users-name {
               display: block;
               list-style-type: none;
               font-size: 25px;
               color: $accent_color;
               text-align: center;
               margin: 30px 0;
-              &:hover {
-                color: $main_color;
-                opacity: $hover_opacity;
-                text-decoration: none;
-              }
+            }
+            li.users-content {
+              width: 880px;
+              display: -webkit-box;
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              text-align: center;
+              height: 50px;
+              line-height: 25px;
             }
           }
-          li.users-content {
-            width: 880px;
-            display: -webkit-box;
-            overflow: hidden;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 2;
-            text-align: center;
-            height: 50px;
-            line-height: 25px;
+          a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-indent:-999px;
+            z-index: 2;  
           }
+          &:hover {
+            background-color: $sub_color;
+          }      
         }
       }
     }
@@ -244,9 +255,10 @@ p#message-button {
   padding: 20px 0;
   .user-post-box {
     width: 800px;
+    height: 360px;
     margin: 0 auto;
-    background-color: $sub_color;
     padding: 20px ;
+    border: 2px solid $border_color;
     border-radius: 10px;
     position: relative;
     z-index: 1;
@@ -300,7 +312,7 @@ p#message-button {
       z-index: 2;  
     }
     &:hover {
-      background-color: rgb(231, 231, 231);
+      background-color: $sub_color;
     }
   }
 }

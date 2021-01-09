@@ -88,7 +88,7 @@
     <!-- //投稿一覧、フォロー中、フォロワー、いいねのボックス-->
     <div class="user-bottom-box">
       <div class="user-post-box">
-        <% @posts.each do |post| %>
+        <% @user.liked_posts.each do |post| %>
           <div class="post-image-box">
             <% if post.img?%>
               <img src='<%=post.img %>' alt="投稿の画像" width="190" height="190">
@@ -115,5 +115,6 @@
         <% end %>
       </div>
     <!-- 投稿一覧、フォロー中、フォロワー、いいねのボックス//-->
+    <%= link_to '投稿する', new_post_path, class: "btn btn-outline-info"%>
   </div>
 </div>
