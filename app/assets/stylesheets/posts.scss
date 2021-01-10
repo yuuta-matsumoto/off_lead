@@ -1,3 +1,84 @@
-// Place all the styles related to the posts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "valiables";
+
+/*===========================================================
+  投稿詳細ページ
+============================================================*/
+
+
+.main {
+  width: auto;
+  .main-wrapper {
+    width: $main_width;
+    margin: 0 auto;
+    padding: 50px;
+    height: 1000px;
+    img#post-user-image {
+      margin-left: 50px;
+      border-radius: 3px;
+    }
+    a#post-user-name {
+      position: absolute;
+      margin: 14px 0 0 14px;
+      color: $text_color;
+      width: 400;
+      font-size: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      &:hover {
+        border-bottom: 1px solid $text_color;
+      }
+    }
+    p.post-title-box {
+      border-top: 1px solid $border_color;
+      padding: 20px 0 0 70px;
+      display: block;
+      font-size: 28px;
+      line-height: 30px;
+      margin-top: 20px;
+    }
+    .post-repeat-box {
+      width: 1020px;
+      margin: 20px 0;
+      position: relative;
+      z-index: 1;
+      padding-left: 65px; //要素が増えたら解除して調整
+      .post-image-box {
+        width: 400px;
+        height: 400px;
+        float: left;
+        padding: 5px;
+      }
+      .post-box-right {
+        width: 500px;
+        height: 300px;
+        float: left;
+        .like-button {
+          float: right;
+        }
+        .post-content-box {
+          background-color: #fff;
+          height: 222px;
+          width: auto;
+          border: 1px solid $border_color;
+          border-radius: 10px;
+          font-size: 16px;
+          line-height: 23px;
+          padding: 5px;
+          margin-top: 10px;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 8;
+          overflow: hidden;
+        }
+        .post-price-box {
+          font-weight: bold;
+          color: $price_color;
+          float: right;
+          border-bottom: 3px solid $price_color;
+          font-size: 28px;
+          letter-spacing: 5px;
+          margin: 60px 15px 0 0;
+        }
+      }
+    }
+  }
+}

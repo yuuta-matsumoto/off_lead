@@ -25,6 +25,7 @@ class PostsController < ApplicationController
     @reviews = @post.reviews
     @review = @post.reviews.new
     @like = Like.new
+    @user = User.find_by(params[:id])
   end
 
   def edit
