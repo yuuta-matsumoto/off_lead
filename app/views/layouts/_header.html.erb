@@ -11,7 +11,7 @@
         <ul>
           <% if user_signed_in? %>
             <li><%= link_to 'ユーザー一覧', users_path, class: "header-item" %></li>
-            <li><%= link_to 'アカウント編集', edit_user_registration_path, class: "header-item" %></li>
+            <li><a href="/users/<%= current_user.id %>", class="header-item">マイページ</a></li>
             <li><%= link_to 'ログアウト', destroy_user_session_path,
                     method: :delete, class: "header-last-item header-item"%></li>
           <% else %>

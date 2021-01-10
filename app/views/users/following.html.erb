@@ -78,7 +78,7 @@
           <li><%= link_to '投稿一覧', @user, class: "header-item" %></li>
           <li><%= link_to 'フォロー中', following_user_path, class: "header-item"%></li>
           <li><%= link_to 'フォワー', follower_user_path, class: "header-item"%></li>
-          <li><a href="/users/<%= current_user.id %>/likes" class="header-item header-last-item">いいね</a></li>
+          <li><a href="/users/<%= @user.id %>/likes" class="header-item header-last-item">いいね</a></li>
             <div class="clearfix"></div>
         </ul>
       </nav>
@@ -86,7 +86,7 @@
     <!-- 中央のナビゲーションバー//-->
 
     <!-- //投稿一覧、フォロー中、フォロワー、いいねのボックス-->
-      <%= render partial: "/layouts/users", locals: {contents: @user.following_user, foobar: @user } %>
+      <%= render partial: "/layouts/users", locals: { contents: @user.following_user } %>
     <!-- 投稿一覧、フォロー中、フォロワー、いいねのボックス//-->
   </div>
 </div>
