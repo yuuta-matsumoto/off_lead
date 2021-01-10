@@ -2,9 +2,10 @@
 
 <div class="users-main">
   <div class="users-main-wrapper">
-    <p class="users-title">ユーザー一覧</p>
-    <%= paginate @users %>
+    <p class="users-title">ユーザー一覧（何件か表示する）</p>
+
     <%= render "list", contents: @users %>
     <div class="users-paginate-bottom"><%= paginate @users %></div>
+  
   </div>
 </div>
