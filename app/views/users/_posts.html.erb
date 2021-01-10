@@ -1,0 +1,23 @@
+<div class="user-post-box">
+  <ul>
+    <% posts.each do |post| %>
+      <div class="post-repeat-box">
+        <li class="post-image-box">
+          <% if post.img?%>
+            <img src='<%=post.img %>' alt="投稿の画像" width="190" height="190">
+          <% else %>
+            <img src="/assets/default.png" alt="投稿の画像" width="190" height="190">
+          <% end %>
+        </li> 
+        <div class="post-box-right">
+          <li class="post-title-box"><%= post.title %></li>
+          <li class="post-content-box"><%= post.content%></li>
+          <!-- ここにレビューの星平均を入れる-->
+          <li class="post-price-box"><%= post.price%>円(税込み)</li>
+        </div>
+          <div class="clearfix"></div>
+        <a href="/posts/<%= post.id %>">aaa</a>
+      </div>
+    <% end %>
+  </ul>
+</div>
