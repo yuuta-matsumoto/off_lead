@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :likes, :only => [:create, :destroy]
   end
   #ユーザー関連
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_for :views
   resources :users, :only => [:index, :show] do
     #フォロー関連のルーティング を追加

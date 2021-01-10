@@ -317,3 +317,42 @@ p#message-button {
 }
 
 
+
+.field {
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.form-control {
+  margin-top: 15px;
+}
+
+.users-main {
+  h2 {
+    font-size: 28px;
+    margin: 30px 0 30px 280px;
+  }
+  .users-edit-wrapper {
+    width: $main_width;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid $border_color;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+}
+
+.update-buton {
+  margin-left: 408px;
+}
+
+.delete-button {
+  font-size: 16px;
+  float: right;
+  display: block;
+  margin-right: 408px;
+  width: 72px;
+  text-align: center;
+}
+
+
