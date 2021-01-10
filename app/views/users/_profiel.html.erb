@@ -45,7 +45,7 @@
         <% end %>
         <!-- ログインしているのが自分だったら-->
         <% else %>
-          <p>プロフィールを編集</p>
+          <%= link_to '設定', edit_user_registration_path, class: "btn btn-outline-secondary btn-md" %>
       <% end %>
     </div>
   </div>
