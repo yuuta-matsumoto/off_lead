@@ -366,32 +366,62 @@ p#message-button {
 
 
 //ログイン
-  .users-login-wrapper {
-    width: $main_width;
-    margin: 0 auto 220px auto;
-    padding: 30px;
-    border: 1px solid $border_color;
-    border-radius: 5px;
-    .users-login-left {
-      width: 380px;
-      height: 270px;
-      float: left;
-      padding-top: 25px;
-      p {
-        text-align: center;
-        margin: 15px 0;
-      }
-      .legistration-button {
-        margin-left: 116px;
-      }
-      .guest-login-button {
-        margin-left: 122px;
-      }
+.users-login-wrapper {
+  width: $main_width;
+  margin: 0 auto 220px auto;
+  padding: 30px;
+  border: 1px solid $border_color;
+  border-radius: 5px;
+  .users-login-left {
+    width: 380px;
+    height: 270px;
+    float: left;
+    padding-top: 25px;
+    p {
+      text-align: center;
+      margin: 15px 0;
     }
-    .users-login-right {
-      width: 620px;
-      height: 270px;
-      float: right;
+    .legistration-button {
+      margin-left: 116px;
+    }
+    .guest-login-button {
+      margin-left: 122px;
     }
   }
+  .users-login-right {
+    width: 620px;
+    height: 270px;
+    float: right;
+  }
+}
 
+
+//会員登録
+.users-registration-wrapper {
+  width: $main_width;
+  margin: 0 auto 50px auto;
+  padding: 30px;
+  border: 1px solid $border_color;
+  border-radius: 5px;
+  .users-registration-left {
+    width: 380px;
+    height: 442px;
+    float: left;
+    padding-top: 25px;
+    p {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .login-button {
+      margin-left: 136px;
+    }
+    .guest-login-button {
+      margin-left: 122px;
+    }
+  }
+  .users-registration-right {
+    width: 620px;
+    height: 442px;
+    float: right;
+  }
+}
