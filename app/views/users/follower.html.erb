@@ -86,7 +86,9 @@
     <!-- 中央のナビゲーションバー//-->
 
     <!-- //投稿一覧、フォロー中、フォロワー、いいねのボックス-->
-      <%= render partial: "/layouts/users", locals: {contents: @user.follower_user } %>
+            <%= paginate @users %>
+
+      <%= render partial: "users", locals: {contents: @user.follower_user } %>
     <!-- 投稿一覧、フォロー中、フォロワー、いいねのボックス//-->
   </div>
 </div>

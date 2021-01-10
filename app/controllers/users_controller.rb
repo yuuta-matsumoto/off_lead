@@ -36,12 +36,12 @@ class UsersController < ApplicationController
     @user  = User.find(params[:id])
     p 'aaa' # ログのどこに出たかわかりやすくするため
     p params[:page]
-    @users = User.all.page(params[:page]).per(5)
+    @users = @user.following_user.page(params[:page]).per(1)
   end
 
   def follower
     @user  = User.find(params[:id])
-    @users = User.all.page(params[:page]).per(5)
+    @users = @user.follower_user.page(params[:page]).per(1)
   end
 
 end

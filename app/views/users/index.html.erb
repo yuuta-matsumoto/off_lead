@@ -4,7 +4,7 @@
   <div class="users-main-wrapper">
     <p class="users-title">ユーザー一覧</p>
     <%= paginate @users %>
-    <%= render partial: "/layouts/users", locals: {contents: @users} %>
+    <%= render partial: "users", locals: {contents: @users} %>
     <div class="users-paginate-bottom"><%= paginate @users %></div>
   </div>
 </div>
