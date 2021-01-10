@@ -318,6 +318,13 @@ p#message-button {
 
 
 
+/*===========================================================
+  プロフィール編集、ログイン、新規登録
+============================================================*/
+
+//プロフィール編集
+
+
 .field {
   margin: 20px 0;
   font-weight: bold;
@@ -343,16 +350,17 @@ p#message-button {
 }
 
 .update-buton {
-  margin-left: 408px;
+  margin-left: 430px;
+  width: 160px;
 }
 
 .delete-button {
   font-size: 16px;
-  float: right;
   display: block;
-  margin-right: 408px;
-  width: 72px;
+  margin-left: 430px;
+  width: 160px;
   text-align: center;
+  margin-top: 20px;
 }
 
 

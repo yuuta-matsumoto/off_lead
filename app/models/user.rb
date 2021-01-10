@@ -14,6 +14,8 @@ class User < ApplicationRecord
   has_many :likes,    dependent: :destroy
   has_many :liked_posts, through: :likes, source: :post #user.liked_postsでuserのいいねした投稿を一気に取り出せる。
   
+  has_many :reviews, dependent: :destroy
+
   #フォロー機能のアソシエーション
   has_many :following, class_name: "Relationship", foreign_key: "following_id", dependent: :destroy
   has_many :follower, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
