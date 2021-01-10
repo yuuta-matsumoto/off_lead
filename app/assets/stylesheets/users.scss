@@ -337,7 +337,8 @@ p#message-button {
 .users-main {
   h2 {
     font-size: 28px;
-    margin: 30px 0 30px 280px;
+    margin: 30px 20px 30px 280px;
+    padding-left: 20px;
   }
   .users-edit-wrapper {
     width: $main_width;
@@ -363,4 +364,34 @@ p#message-button {
   margin-top: 20px;
 }
 
+
+//ログイン
+  .users-login-wrapper {
+    width: $main_width;
+    margin: 0 auto 220px auto;
+    padding: 30px;
+    border: 1px solid $border_color;
+    border-radius: 5px;
+    .users-login-left {
+      width: 380px;
+      height: 270px;
+      float: left;
+      padding-top: 25px;
+      p {
+        text-align: center;
+        margin: 15px 0;
+      }
+      .legistration-button {
+        margin-left: 116px;
+      }
+      .guest-login-button {
+        margin-left: 122px;
+      }
+    }
+    .users-login-right {
+      width: 620px;
+      height: 270px;
+      float: right;
+    }
+  }
 
