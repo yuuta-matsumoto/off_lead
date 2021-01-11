@@ -23,9 +23,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @reviews = @post.reviews
-    @review = @post.reviews.new
     @like = Like.new
-    @user = User.find_by(params[:id])
+    @user = User.find_by(id: @post.user_id) #投稿をしたユーザーのuser_idを代入
   end
 
   def edit

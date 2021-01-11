@@ -36,32 +36,34 @@
       <div class="clearfix"></div>
     <p class="box-box">口コミ（<%= @reviews.count%>件）</p>
 
+    <a href='/posts/<%= @post.id %>/reviews/new' class="btn btn-primary btn-lg new-review-button">口コミを投稿する</a>
 
 
+    <div class="review-box">
+      <ul>
+        <div class="review-repeat-box">
+         
+          <% @reviews.each do |r| %>
+              <li id="star-rate-<%= r.id %>"><%= r.rate%></li>
+              <li><%= r.title %></li>
+              <li><%= r.content %></li>
+              <script>
+                    $('#star-rate-<%= r.id %>').raty({
+                      size: 30,
+                      starOff:  '<%= asset_path('star-off.png') %>',
+                      starOn : '<%= asset_path('star-on.png') %>',
+                      starHalf: '<%= asset_path('star-half.png') %>',
+                      half: true,
+                      score: <%= r.rate %>,
+                  });
+              </script> 
+          <% end %>
 
-    <a href='/posts/<%= @post.id %>/reviews/new'>口コミ投稿</a>
-
-    <% @reviews.each do |r| %>
-        <p><%= r.title %></p>
-        <p><%= r.content %></p>
-        <h4 class="mb-3">評価：<%= r.rate %> </h4>
-        <div id="star-rate-<%= r.id %>"></div>
-        <script>
-              $('#star-rate-<%= r.id %>').raty({
-                size: 30,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                half: true,
-                score: <%= r.rate %>,
-            });
-        </script> 
-    <% end %>
-
-
-
-
-
+        </div>
+      </ul>
     </div>
+
+
+    
   </div>
 </div>

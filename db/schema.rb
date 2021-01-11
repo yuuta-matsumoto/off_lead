@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_04_072855) do
+ActiveRecord::Schema.define(version: 2021_01_11_083935) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -66,6 +66,8 @@ ActiveRecord::Schema.define(version: 2021_01_04_072855) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
     t.float "rate", default: 0.0, null: false
+    t.string "reviewer_name"
+    t.string "reviewer_img"
     t.index ["post_id"], name: "index_reviews_on_post_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

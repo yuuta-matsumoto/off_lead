@@ -92,5 +92,12 @@
       font-size: 18px;
       border-left: 5px solid $main_color;
     }
+    a.new-review-button {
+      width: 200px;
+      display: block;
+      text-decoration: none;
+      margin: 20px auto;
+    }
+
   }
 }
