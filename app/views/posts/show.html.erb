@@ -44,6 +44,14 @@
         <div class="review-repeat-box">
          
           <% @reviews.each do |r| %>
+              <li>
+                <% if r.user.img? %>
+                  <img src='<%= r.user.img %>' alt="ユーザーアイコン" width="30" height="30">
+                <% else %>
+                  <img src="/assets/default.png" alt="ユーザーアイコン" width="30" height="30">
+                <% end %>
+              </li>
+              <li><a href='/users/<%= r.user.id %>'><%= r.user.name %></a></li>
               <li id="star-rate-<%= r.id %>"><%= r.rate%></li>
               <li><%= r.title %></li>
               <li><%= r.content %></li>

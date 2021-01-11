@@ -52,7 +52,11 @@
 
   <div class="user-profiel-right-content">
     <div class="user-name-box">
-      <%= user.name%>さんのページ
+      <% if @user.id == current_user.id %>
+        <p style="color: gray;">マイページ</p>
+      <% else %>
+        <%= user.name%>さんのページ
+      <% end %>
     </div>
     <div class="user-content-box">
       <%= user.content%>
