@@ -2,37 +2,66 @@
 
 <div class="main">
   <div class="main-wrapper">
-
-    
-      <% if @user.img?%>
-        <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
-      <% else %>
-        <a href='/users/<%= @user.id %>'><img src="/assets/default.png" alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
-      <% end %>
+    <% if @user.img?%>
+      <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
+    <% else %>
+      <a href='/users/<%= @user.id %>'><img src="/assets/default.png" alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
+    <% end %>
 
     <a href='/users/<%= @user.id %>' id="post-user-name"><%=  @user.name%></a>
 
     <p class="post-title-box"><%= @post.title %></p>
-      <div class="post-repeat-box">
-        <div class="post-image-box">
-          <% if @post.img?%>
-            <img src='<%=@post.img %>' alt="投稿の画像" width="380" height="380">
-          <% else %>
-            <img src="/assets/default.png" alt="投稿の画像" width="380" height="380">
-          <% end %>
-        </div> 
-        <div class="post-box-right">
-          <% if current_user.already_liked?(@post)%>
-            <%= button_to 'いいね！', post_like_path(@post), method: :delete, class: "btn btn-primary like-button"%>
-          <% else %>
-            <%= button_to 'いいね！', post_likes_path(@post), class: "btn btn-primary bg-white text-primary like-button"%>
-          <% end %>
-            <div class="clearfix"></div>
-          <div class="post-content-box"><%= @post.content%></div>
-          <!-- ここにレビューの星平均を入れる-->
-          <div class="post-price-box"><%= @post.price%>円(税込み)</div>
+
+    <div class="post-repeat-box">
+      <div class="post-image-box">
+        <% if @post.img?%>
+          <img src='<%=@post.img %>' alt="投稿の画像" width="380" height="380">
+        <% else %>
+          <img src="/assets/default.png" alt="投稿の画像" width="380" height="380">
+        <% end %>
+      </div> 
+      <div class="post-box-right">
+        <% if current_user.already_liked?(@post)%>
+          <%= button_to 'いいね！', post_like_path(@post), method: :delete, class: "btn btn-primary like-button"%>
+        <% else %>
+          <%= button_to 'いいね！', post_likes_path(@post), class: "btn btn-primary bg-white text-primary like-button"%>
+        <% end %>
           <div class="clearfix"></div>
-        </div>
+        <div class="post-content-box"><%= @post.content%></div>
+        <!-- ここにレビューの星平均を入れる-->
+        <div class="post-price-box"><%= @post.price%>円(税込み)</div>
+        <div class="clearfix"></div>
       </div>
+    </div>
+      <div class="clearfix"></div>
+    <p class="box-box">口コミ（<%= @reviews.count%>件）</p>
+
+
+
+
+    <a href='/posts/<%= @post.id %>/reviews/new'>口コミ投稿</a>
+
+    <% @reviews.each do |r| %>
+        <p><%= r.title %></p>
+        <p><%= r.content %></p>
+        <h4 class="mb-3">評価：<%= r.rate %> </h4>
+        <div id="star-rate-<%= r.id %>"></div>
+        <script>
+              $('#star-rate-<%= r.id %>').raty({
+                size: 30,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                score: <%= r.rate %>,
+            });
+        </script> 
+    <% end %>
+
+
+
+
+
+    </div>
   </div>
 </div>

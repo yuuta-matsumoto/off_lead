@@ -1,15 +1,15 @@
 Rails.application.routes.draw do
   #rootパス
   root 'pages#top'
-  #
+  #利用規約、プラポリ
   get '/terms' => 'pages#terms'
-  #
   get '/privacy' => 'pages#privacy'
   #フォロー
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   #レビュー
   resources :reviews, :only => [:create]
+  get '/posts/:id/reviews/new' => 'reviews#new'
   #投稿
   resources :posts do
     #いいね
