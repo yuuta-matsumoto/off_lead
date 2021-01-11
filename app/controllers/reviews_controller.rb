@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
 
   def new
+    @post = Post.find(params[:id])
     @review = Review.new
   end
 
