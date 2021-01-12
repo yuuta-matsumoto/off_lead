@@ -1,7 +1,6 @@
+<%= render '/layouts/header'%>
+
   <h1>新規投稿</h1>
-  <div class="ml-auto posts_button text-right">
-    <%= link_to '投稿一覧', posts_path, class: "btn btn-outline-info"%>
-  </div>
   <div class="form-group">
     <%= form_for @post do |f| %>
       <div class="form-group">
@@ -20,6 +19,6 @@
         <%= f.label '画像'%>
         <%= f.file_field :img, class: "image" %>
       </div>
-      <%= f.submit '投稿する', class: 'btn btn-primary' %>
+      <%= f.submit '投稿する',  class: 'btn btn-primary' %>
     <% end %>
   </div>

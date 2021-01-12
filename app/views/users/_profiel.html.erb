@@ -45,7 +45,8 @@
         <% end %>
         <!-- ログインしているのが自分だったら-->
         <% else %>
-          <%= link_to '設定', edit_user_registration_path, class: "btn btn-outline-secondary btn-md" %>
+          <%= link_to '設定', edit_user_registration_path, class: "btn btn-outline-secondary btn-md ml-5" %>
+          <%= link_to '投稿する', new_post_path, class: "btn btn-primary btn-md ml-3" %>
       <% end %>
     </div>
   </div>
