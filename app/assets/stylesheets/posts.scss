@@ -182,6 +182,21 @@
         text-align: center;
       }
     }
+
+    //新規投稿画面
+    .new-post {
+      width: 780px;
+      margin: 0 auto;
+      border: 1px solid $border_color;
+      text-align: center;
+      .new-review-top {
+        text-align: center;
+        background-color: $sub_color;
+        line-height: 30px;
+        border-bottom: 1px solid $border_color;
+        
+      }
+    }
   }
 }
 
