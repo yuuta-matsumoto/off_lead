@@ -34,9 +34,9 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     if post.update(post_params)
-      redirect_to posts_path
+      redirect_to controller: :users, action: :show, id: current_user.id
     else
-      render action: :new
+      render action: :edit
     end
   end
 
