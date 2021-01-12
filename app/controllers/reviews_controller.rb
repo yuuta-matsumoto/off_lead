@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   def new
     @post = Post.find(params[:id])
     @review = Review.new
+    @user = User.find_by(id: @post.user_id) #投稿をしたユーザーのuser_idを代入
   end
 
   def create

@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, only: [:show, :likes, :following, :follower]
+
   def index
     @users = User.all.order("created_at ASC").page(params[:page]).per(10)
   end
