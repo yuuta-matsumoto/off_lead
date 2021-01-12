@@ -8,9 +8,13 @@ class ReviewsController < ApplicationController
 
   def create
     @review = current_user.reviews.new(review_params)
-    @review.save
-    redirect_to request.referer
+    if @review.save
+      redirect_to controller: :posts, action: :show, id: @review.post.id
+    else
+      render action: :new
+    end
   end
+
   private
     def review_params
       params.require(:review).permit(:post_id, :title, :content, :rate)
