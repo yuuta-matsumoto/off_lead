@@ -11,7 +11,6 @@
     width: $main_width;
     margin: 0 auto;
     padding: 50px;
-    height: 1000px;
     img#post-user-image {
       margin-left: 50px;
       border-radius: 3px;
@@ -99,5 +98,65 @@
       margin: 20px auto;
     }
 
+    .review-box {
+      padding: 5px 0;
+      ul {
+        list-style-type: none;
+        
+        .review-repeat-box {
+          padding: 10px;
+          width: 760px;
+          margin: 10px auto 10px auto;
+          border: 1px solid $border_color;
+          border-radius: 5px;
+          .reviewer-box {
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(199, 199, 199, 0.3);
+            img#review-user-icon {
+              padding: 0;
+              border-radius: 5px;
+              margin-right: 5px;
+              margin-bottom: 5px;
+            }
+            a#review-user-name {
+              position: absolute;
+              margin-top: 8px;
+              color: $text_color;
+              font-size: 14px;
+              text-decoration: none;
+              &:hover {
+                border-bottom: 1px solid $text_color;
+              }
+            }
+          }
+          .star-box {
+            justify-content: space-between;
+            height: 48px;
+            padding-top: 12px;
+            border-bottom: 1px solid rgba(199, 199, 199, 0.3);
+            #star {
+              float: left;
+              margin-right: 15px;
+            }
+            #star-rate {
+              color: red;
+              font-weight: bold;
+              font-size: 24px;
+            }
+          }
+        }
+        #review-title {
+          font-size: 20px;
+          border-bottom: 1px dotted $border_color;
+          margin-left: 10px;
+          line-height: 32px;
+          margin-bottom: 10px;
+        }
+        #review-content {
+          line-height: 18px;
+        }
+      }
+    } 
   }
 }
+
