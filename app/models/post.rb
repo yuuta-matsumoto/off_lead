@@ -1,4 +1,9 @@
 class Post < ApplicationRecord
+  validates :title, presence: true
+  validates :content, presence: true
+  validates :price, presence: true
+
+
   belongs_to :user
   has_many :reviews, dependent: :destroy
   mount_uploader :img, ImgUploader
