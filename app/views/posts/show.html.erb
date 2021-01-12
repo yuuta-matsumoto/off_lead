@@ -14,7 +14,7 @@
 
     <div class="post-repeat-box">
       <div class="post-image-box">
-        <% if @post.img?%>
+        <% if @post.img? %>
           <img src='<%=@post.img %>' alt="投稿の画像" width="380" height="380">
         <% else %>
           <img src="/assets/default.png" alt="投稿の画像" width="380" height="380">
@@ -26,6 +26,12 @@
         <% else %>
           <%= button_to 'いいね！', post_likes_path(@post), class: "btn btn-primary bg-white text-primary like-button"%>
         <% end %>
+        <div class="edit-delete-button">
+          <% if @post.user_id == current_user.id %>
+            <%= link_to '削除', @post, method: :delete%>
+            <%= link_to '編集', edit_post_path %>
+          <% end %>
+        </div>
           <div class="clearfix"></div>
         <div class="post-content-box"><%= @post.content%></div>
         <!-- ここにレビューの星平均を入れる-->
