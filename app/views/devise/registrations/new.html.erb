@@ -7,7 +7,7 @@
         <p>登録済みの方</p>
         <%= link_to "ログイン", new_user_session_path, class: "btn btn-primary btn-lg login-button" %>
         <p>会員登録をせずに利用する方</p>
-        <%= link_to "ゲストログイン", "#", class: "btn btn-secondary btn-md guest-login-button" %>
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-md guest-login-button", method: :post %>
       </div>
       <div class="users-registration-right">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>

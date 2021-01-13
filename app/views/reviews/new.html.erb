@@ -56,27 +56,25 @@
               <div class="">評価</div>
               <%= f.hidden_field :rate, id: :review_star %>
             </div>
-            <!-- 星評価javascript -->
-            <script>
-              $('#star').raty({
-                size     : 30,
-                starOff:  '<%= asset_path('star-off.png') %>',
-                starOn : '<%= asset_path('star-on.png') %>',
-                starHalf: '<%= asset_path('star-half.png') %>',
-                scoreName: 'review[rate]',
-                half: true,
-              });
-            </script>  
           </div>
           <%= f.hidden_field :post_id, value: @post.id, class: "form-control" %>
           <%= f.submit '投稿する', class: 'm-3 btn btn-primary' %>
         <% end %>
       <% end %>
     </div>
-
-
-
-
   </div>    
 </div>
+
+<!-- 星評価javascript -->
+<script>
+  $('#star').raty({
+    size     : 30,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'review[rate]',
+    half: true,
+  });
+</script>  
+
 

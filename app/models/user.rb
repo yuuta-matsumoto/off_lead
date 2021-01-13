@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable
+         :lockable, :timeoutable, :trackable # :confirmable
   #ユーザーの画像をアップロードする
   mount_uploader :img, ImgUploader
 
@@ -40,5 +40,12 @@ class User < ApplicationRecord
   #いいね機能のメソッド
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
+  end
+  #ゲストログインのクラスメソッド
+  def self.guest
+    find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now 
+    end
   end
 end

@@ -64,16 +64,6 @@
               <div class="clearfix"></div>
             <li id="review-title"><%= r.title %></li>
             <li id="review-content"><%= r.content %></li>
-            <script>
-                $('#star-rate-<%= r.id %>').raty({
-                  size: 30,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  half: true,
-                  score: <%= r.rate %>,
-              });
-            </script> 
           </div>
         <% end %>
       </ul>
@@ -81,3 +71,17 @@
     
   </div>
 </div>
+
+
+<% @reviews.each do |r| %>
+ <script>
+    $('#star-rate-<%= r.id %>').raty({
+      size: 30,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      score: <%= r.rate %>,
+  });
+</script>
+<% end %>
