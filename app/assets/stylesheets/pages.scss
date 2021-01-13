@@ -1,3 +1,76 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/*==========================================================
+    トップページ
+============================================================*/
+
+.home-header {
+  width: auto;
+  height: 900px;
+  background-image: url("4019821_m.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  .header-wrapper {
+    width: 1600px;
+    height: 900px;
+    margin: 0 auto;
+    padding: 0 40px;
+    .header-top {
+      width: 1440px;
+      height: 150px;
+      margin: 0 auto;
+      padding: 10px;
+      .home-header-icon-box {
+        float: left;
+      }
+      .home-header-list-box {
+        nav {
+          float: right;
+          margin: 35px 35px 0 0;
+          ul {
+            list-style: none;
+            li {
+              float: left;
+              margin-left: 20px;
+              border-left: 1px solid gray;
+              padding-left: 20px;
+              .home-header-last-list {
+                display: inline-block;
+                border-right: 1px solid gray;
+                padding-right: 20px;
+              }
+              .list-item {
+                list-style-type: none;
+                color: rgb(51, 51, 51);
+                &:hover {
+                  color: orange;
+                  opacity: 0.9;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    #catchphrase {
+      letter-spacing: 10px;
+      font-size: 20px;
+      background-color:rgba(204, 204, 204, 0.5);
+      height: 110px;
+      width: 560px;
+      text-align: center;
+      font-weight: bold;
+      font-family: 'Courier New', Courier, monospace;
+      margin: 300px 0 0 0px;
+      line-height: 32px;
+      padding-top: 10px;
+    }
+  }
+}
+
+
+.home-main {
+  width: auto;
+  height: 500px;
+  background-color: #fff;
+}

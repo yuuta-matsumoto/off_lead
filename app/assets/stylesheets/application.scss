@@ -1,17 +1,393 @@
 @import "bootstrap";
+@import "users";
+@import "pages";
+@import "valiables";
+@import "posts";
 
-// max-width
 
-.mw-md {
-  max-width: 576px;
+
+
+/*==========================================================
+  HTML5 Doctor Reset CSS
+============================================================*/
+
+
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
 }
 
-// 「ログインしました」などのフラッシュ用スタイル
-
-.alert-notice {
-  @extend .alert-info;
+body {
+    line-height:1;
 }
 
-.alert-alert {
-  @extend .alert-danger;
+article,aside,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section {
+    display:block;
 }
+
+nav ul {
+    list-style:none;
+}
+
+blockquote, q {
+    quotes:none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content:'';
+    content:none;
+}
+
+a {
+    margin:0;
+    padding:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/* change colours to suit your needs */
+ins {
+    background-color:#ff9;
+    color:#000;
+    text-decoration:none;
+}
+
+/* change colours to suit your needs */
+mark {
+    background-color:#ff9;
+    color:#000;
+    font-style:italic;
+    font-weight:bold;
+}
+
+del {
+    text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+    border-bottom:1px dotted;
+    cursor:help;
+}
+
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+
+/* change border colour to suit your needs */
+hr {
+    display:block;
+    height:1px;
+    border:0;  
+    border-top:1px solid #cccccc;
+    margin:1em 0;
+    padding:0;
+}
+
+input, select {
+    vertical-align:middle;
+}
+
+
+
+/*------------------------------------
+- COLOR primary
+------------------------------------*/
+
+
+
+$primary_t1: #ff8228;
+$primary_t2: #f36600;
+$primary_t3: #ffddc6;
+$primary_t4: #ffecdf;
+$primary_t5: #ac4800;
+$primary_t6: #e45f00;
+$primary_t7: #ff6d04;
+$primary_t8: #793200;
+$primary_t9: #fff8f3;
+
+$primary_shadow: rgba(255, 130, 40, 0.5);
+$primary_text_color_dark_bright: #ffffff;
+
+
+.alert-primary {
+  color: $primary_t5;
+  background-color: $primary_t9;
+  border-color: $primary_t4;
+}
+
+.alert-primary hr {
+  border-top-color: $primary_t3;
+}
+
+.alert-primary .alert-link {
+  color: $primary_t8;
+}
+
+.badge-primary {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+}
+
+.badge-primary[href]:hover, .badge-primary[href]:focus {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t2;
+}
+
+.bg-primary {
+  background-color: $primary_t1 !important;
+}
+
+a.bg-primary:hover, a.bg-primary:focus,
+button.bg-primary:hover,
+button.bg-primary:focus {
+  background-color: $primary_t2 !important;
+}
+
+.border-primary {
+  border-color: $primary_t1 !important;
+}
+
+.btn-primary {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+  font-size: 16px;
+  letter-spacing: 3px;
+}
+
+.btn-primary:hover {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t7;
+  border-color: $primary_t2;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t2;
+  border-color: $primary_t6;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.btn-outline-primary {
+  color: $primary_t1;
+  background-color: transparent;
+  border-color: $primary_t1;
+}
+
+.btn-outline-primary:hover {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-outline-primary:focus, .btn-outline-primary.focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.btn-outline-primary.disabled, .btn-outline-primary:disabled {
+  color: $primary_t1;
+  background-color: transparent;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active, .btn-outline-primary:not(:disabled):not(.disabled).active, .show > .btn-outline-primary.dropdown-toggle {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t1;
+  border-color: $primary_t1;
+}
+
+.btn-outline-primary:not(:disabled):not(.disabled):active:focus, .btn-outline-primary:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem $primary_shadow;
+}
+
+.list-group-item-primary {
+  color: $primary_t5;
+  background-color: $primary_t4;
+}
+
+.list-group-item-primary.list-group-item-action:hover, .list-group-item-primary.list-group-item-action:focus {
+  color: $primary_t5;
+  background-color: $primary_t3;
+}
+
+.list-group-item-primary.list-group-item-action.active {
+  color: $primary_text_color_dark_bright;
+  background-color: $primary_t5;
+  border-color: $primary_t5;
+}
+
+.table-primary,
+.table-primary > th,
+.table-primary > td {
+  background-color: $primary_t4;
+}
+
+.table-hover .table-primary:hover {
+  background-color: $primary_t3;
+}
+
+.table-hover .table-primary:hover > td,
+.table-hover .table-primary:hover > th {
+  background-color: $primary_t3;
+}
+
+.text-primary {
+  color: $primary_t1 !important;
+}
+
+a.text-primary:hover, a.text-primary:focus {
+  color: $primary_t2 !important;
+}
+
+
+
+/*===========================================================
+  全体の設定
+============================================================*/
+
+body {
+  background-color:#fff;
+  font-family: "Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans",Meiryo,sans-serif;
+  color: rgb(51, 51,51);
+  font-size: 14px;
+}
+
+div.clearfix {
+  clear: both;
+}
+
+
+
+/*===========================================================
+  デフォルトのヘッダー
+============================================================*/
+
+
+
+header {
+  height: 120px;
+  widows: 0 auto;
+  padding: 5px;
+  background-color: $sub_color;
+  .header-box {
+    height: 110px;
+    width: $main_width;
+    margin: 0 auto;
+    .header-icon {
+      float: left;
+    }
+  }
+  .header-item-box {
+    nav {
+      float: right;
+      margin: 35px 35px 0 0;
+      ul {
+        list-style: none;
+        li {
+          float: left;
+          margin-left: 20px;
+          border-left: 1px solid $border_color;
+          padding-left: 10px;
+          .header-last-item {
+            display: inline-block;
+            border-right: 1px solid $border_color;
+            padding-right: 10px;
+          }
+          .header-item {
+            list-style-type: none;
+            color: $text_color;
+            &:hover {
+              color: $main_color;
+              opacity: $hover_opacity;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+/*===========================================================
+  フッター
+============================================================*/
+
+
+
+footer {
+  background-color: $sub_color;
+  height: 150px;
+  a#footer-logo {
+    position: absolute;
+    float: left;
+    margin: 40px 0 0 180px;
+  }
+}
+
+div#footer-inner {
+  width: 960px;
+  height: auto;
+  margin: 0 auto;
+  ul {
+    list-style: none;
+    margin: 70px 300px 0 0; 
+    float: right;
+    li {
+      margin-left: 20px;
+      float: left;
+      a {
+        text-decoration: none;
+        color: gray;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+//後で横幅を揃える
+div#copyright span {
+  display: inline-block;
+  color: $text_sub_color;
+  margin: auto;
+  position: absolute;
+  margin: 120px 0 0 295px;
+}
+
+
+

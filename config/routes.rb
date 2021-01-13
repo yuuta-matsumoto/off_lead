@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
   #rootパス
-  root 'pages#index'
+  root 'pages#top'
+  #利用規約、プラポリ
+  get '/terms' => 'pages#terms'
+  get '/privacy' => 'pages#privacy'
   #フォロー
   post 'follow/:id' => 'relationships#follow', as: 'follow'
   delete 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow'
   #レビュー
   resources :reviews, :only => [:create]
+  get '/posts/:id/reviews/new' => 'reviews#new'
   #投稿
   resources :posts do
     #いいね
     resources :likes, :only => [:create, :destroy]
   end
   #ユーザー関連
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'users/registrations' }
   devise_for :views
   resources :users, :only => [:index, :show] do
     #フォロー関連のルーティング を追加
@@ -24,10 +28,9 @@ Rails.application.routes.draw do
   resources :messages, :only => [:create]
   #トークルーム
   resources :rooms, :only => [:create, :show]
-  #ログイン直後に遷移するページ
-  get 'pages/show'
   # ログアウト
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest' #ゲストログイン
   end
 end

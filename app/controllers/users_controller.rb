@@ -1,7 +1,9 @@
 class UsersController < ApplicationController
 
+  before_action :authenticate_user!, only: [:show, :likes, :following, :follower]
+
   def index
-    @users = User.all
+    @users = User.all.order("created_at ASC").page(params[:page]).per(10)
   end
 
   def show
@@ -34,10 +36,14 @@ class UsersController < ApplicationController
   #フォロー機能のメソッド
   def following
     @user  = User.find(params[:id])
+    p 'aaa' # ログのどこに出たかわかりやすくするため
+    p params[:page]
+    @users = @user.following_user.page(params[:page]).per(1)
   end
 
   def follower
     @user  = User.find(params[:id])
+    @users = @user.follower_user.page(params[:page]).per(1)
   end
 
 end

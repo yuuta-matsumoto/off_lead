@@ -1,36 +1,27 @@
 <header>
-    <nav class="navbar navbar-expand navbar-dark bg-dark h-60">
-      <%= link_to "オフリード", root_path, class: 'navbar-brand' %>
-      <div id="navbar">
-        <ul class="navbar-nav">
+  <div class="header-box">
+    <div class="header-icon">
+      <a href="/" alt="オフリード">
+        <%= image_tag "offlead.png", size: '110x110'%>
+      </a>
+    </div>
+
+    <div class="header-item-box">
+      <nav>
+        <ul>
           <% if user_signed_in? %>
-            <li class="nav-item active">
-              <%= link_to 'ユーザー一覧', users_path ,class: 'nav-link' %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to '投稿一覧', posts_path ,class: 'nav-link' %>
-            </li>
-            <li class="nav-item active">
-              <a href="/users/<%= current_user.id %>/likes" class="nav-link">いいねした投稿</a>
-            </li>
-            <li class="nav-item active">
-              <%= link_to 'アカウント編集', edit_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-            </li>
-        <% else %>
-            <li class="nav-item active">
-              <%= link_to '投稿一覧', posts_path , class: 'nav-link' %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link' %>
-            </li>
-            <li class="nav-item active">
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link' %>
-            </li>
+            <li><%= link_to 'ユーザー一覧', users_path, class: "header-item" %></li>
+            <li><a href="/users/<%= current_user.id %>", class="header-item">マイページ</a></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path,
+                    method: :delete, class: "header-last-item header-item"%></li>
+          <% else %>
+            <li><%= link_to 'ユーザー一覧', users_path, class: "header-item" %></li>
+            <li><%= link_to "ログイン", new_user_session_path, class: "header-last-item header-item"%></li>
+            <div class="clearfix"></div>
           <% end %>
         </ul>
-      </div>
-    </nav>
+      </nav>
+      <div class="clearfix"></div>
+    </div>
+  </div>
 </header>

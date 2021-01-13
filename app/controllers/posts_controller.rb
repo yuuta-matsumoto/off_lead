@@ -14,7 +14,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       flash[:success] = "投稿しました"
-      redirect_to posts_path
+      redirect_to controller: :users, action: :show, id: current_user.id
     else
       render action: :new
     end
@@ -23,8 +23,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @reviews = @post.reviews
-    @review = @post.reviews.new
     @like = Like.new
+    @user = User.find_by(id: @post.user_id) #投稿をしたユーザーのuser_idを代入
   end
 
   def edit
@@ -34,16 +34,19 @@ class PostsController < ApplicationController
   def update
     post = Post.find(params[:id])
     if post.update(post_params)
-      redirect_to posts_path
+      redirect_to controller: :users, action: :show, id: current_user.id
     else
-      render action: :new
+      render action: :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy!
-    redirect_to posts_path
+     if @post.destroy!
+      redirect_to controller: :users, action: :show, id: current_user.id
+     else
+      redirect_to action: :show, alert: "削除できませんでした"
+    end
   end
 
   private

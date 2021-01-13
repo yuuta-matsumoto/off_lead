@@ -1,3 +1,427 @@
-// Place all the styles related to the Users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "valiables";
+
+
+/*===========================================================
+  ユーザー一覧、フォロー、フォロワー
+============================================================*/
+
+
+.users-main {
+  width: auto;
+  .users-main-wrapper {
+    width: $main_width;
+    margin: 0 auto;
+    padding: 50px;
+    p.users-title {
+      font-size: 30px;
+      font-weight: lighter;
+      margin-bottom: 40px;
+    }
+    p.user-name-box {
+      height: 46px;
+      width: 300px;
+      margin: 12px auto;
+      padding: 5px 30px;
+      font-size: 25px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-align: center;
+      border-bottom: 1px solid $border-color;
+    }
+    p.users-following-box {
+      height: 50px;
+      width: 200px;
+      font-size: 25px;
+      font-weight: lighter;
+      margin-bottom: 24px;
+      float: left;
+      margin:20px 0 0  300px;
+      text-align: center;
+      padding-top: 12px;
+      &:hover {
+        background-color: rgb(228, 228, 228);
+      }
+    }
+    p.users-follower-box {
+      height: 50px;
+      width: 200px;
+      font-size: 25px;
+      font-weight: lighter;
+      margin-bottom: 24px;
+      float: right;
+      margin: 20px 300px 0 0;
+      text-align: center;
+      padding-top: 12px;
+      &:hover {
+        background-color: rgb(228, 228, 228);
+      }
+    }
+    .users-box {
+      padding: 5px 0;
+      ul {
+        list-style-type: none;
+        .users-repeat-box {
+          width: 1020px;
+          margin-bottom: 10px;
+          position: relative;
+          z-index: 1;
+          li.users-box-left-info {
+            height: 180px;
+            width: 140px;
+            float: left;
+            padding: 10px;
+            border-bottom: 1px solid $border_color;
+            img {
+              margin: 20px 5px;
+              border-radius: 5px;
+            }
+          }
+          .users-box-right-info {
+            height: 180px;
+            width: auto;
+            float: left;
+            border-bottom: 1px solid $border_color;
+            li.users-name {
+              display: block;
+              list-style-type: none;
+              font-size: 25px;
+              color: $accent_color;
+              text-align: center;
+              margin: 30px 0;
+            }
+            li.users-content {
+              width: 880px;
+              display: -webkit-box;
+              overflow: hidden;
+              -webkit-box-orient: vertical;
+              -webkit-line-clamp: 2;
+              text-align: center;
+              height: 50px;
+              line-height: 25px;
+            }
+          }
+          a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            text-indent:-999px;
+            z-index: 2;  
+          }
+          &:hover {
+            background-color: $sub_color;
+          }      
+        }
+      }
+    }
+    .users-paginate-bottom {
+      margin-top: 50px;
+    }
+  }
+}
+
+
+
+/*===========================================================
+  ユーザープロフィールページ
+============================================================*/
+
+
+
+.user-profiel-box {
+  width: auto;
+  margin: 0 auto;
+  padding: 10px;
+  //左側
+  .user-profiel-left-content {
+    height: 100%;
+    width: 340px;
+    padding-top: 10px;
+    float: left;
+    .user-image-box {
+      height: 300px;
+      width: 300px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      img {
+        border-radius: 10px;
+      }
+    }
+    .user-button-box {
+      height: 100px;
+      width: 300px;
+      margin: 35px auto 0 auto;
+      background-color: #fff;
+      p .hover {
+        display: none;
+      }
+      p:hover .normal{
+        display: none;
+      }
+      p:hover .hover {
+        display: inline;
+      }
+    }
+  }
+  //右側
+  .user-profiel-right-content {
+    height: 100%;
+    width: 660px;
+    float: right;
+    .user-name-box {
+      height: 50px;
+      width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      line-height: 50px;
+      font-size: 25px;
+      margin-bottom: 40px;
+    }
+    .user-content-box {
+      height: 300px;
+      width: 600px;
+      margin: 0 auto;
+      font-size: 16px;
+      background-color: #fff;
+      border: 1px solid $border_color;
+      border-radius: 10px;
+      line-height: 24px;
+      padding: 5px;
+      overflow: auto;
+    }
+  }
+}
+
+p#follow-button {
+  margin-left: 20px;
+}
+
+p#message-button {
+  float: right;
+  margin-right: 20px;
+}
+
+//中央のナビゲーションバー
+
+.user-profiel-nav {
+  height: 51px;
+  width: 1020px;
+  margin: 0 auto;
+  border-bottom: 1px solid $border_color;
+  nav {
+    ul {
+      width: 100%;
+      list-style-type: none;
+      text-align: center;
+      li {
+        display: inline-block;
+        margin-left: 20px;
+        padding-left: 10px;
+        height: 50px;
+        line-height: 50px;
+        width: 150px;
+        text-align: center;
+        &:hover {
+          background-color: $sub_color;
+        }
+        .header-last-item {
+          display: inline-block;
+          padding-right: 10px;
+        }
+        .header-item {
+          list-style-type: none;
+          color: $text_color;
+          font-size: 16px;
+          padding-right: 10px;
+          &:hover {
+            color: $main_color;
+            opacity: $hover_opacity;
+          }
+        }
+      }
+    }
+  }
+}
+
+//投稿一覧、フォロー中、フォロワー、いいねのボックス
+
+.user-post-box {
+  padding: 5px 0;
+  ul {
+    list-style-type: none;
+    .post-repeat-box {
+      width: 1020px;
+      margin: 20px 0;
+      position: relative;
+      z-index: 1;
+      li.post-image-box {
+        width: 201px;
+        height: 201px;
+        background-color: #fff; //delete
+        float: left;
+        margin: 50px 50px 0 50px ;
+        padding: 5px;
+        border: 1px solid $border_color;
+      }
+      .post-box-right {
+        width: 600px;
+        height: 300px;
+        float: left;
+        li.post-title-box {
+          display: block;
+          font-size: 28px;
+          text-align: center;
+          line-height: 30px;
+          margin-top: 10px;
+        }
+        li.post-content-box {
+          background-color: #fff;
+          height: 192px;
+          width: auto;
+          border: 1px solid $border_color;
+          border-radius: 10px;
+          font-size: 16px;
+          line-height: 23px;
+          padding: 5px;
+          margin-top: 15px;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 8;
+          overflow: hidden;
+        }
+        li.post-price-box {
+          font-weight: bold;
+          color: $price_color;
+          float: right;
+          border-bottom: 3px solid $price_color;
+          font-size: 28px;
+          letter-spacing: 5px;
+          margin: 15px 15px 0 0;
+        }
+      }
+      a {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-indent:-999px;
+        z-index: 2;  
+      }
+      &:hover {
+        background-color: $sub_color;
+      }
+    }
+  }
+}
+
+
+
+/*===========================================================
+  プロフィール編集、ログイン、新規登録
+============================================================*/
+
+//プロフィール編集
+
+
+.field {
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.form-control {
+  margin-top: 15px;
+}
+
+.users-main {
+  h2 {
+    font-size: 28px;
+    margin: 30px 20px 30px 280px;
+    padding-left: 20px;
+  }
+  .users-edit-wrapper {
+    width: $main_width;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid $border_color;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+}
+
+.update-buton {
+  margin-left: 430px;
+  width: 160px;
+}
+
+.delete-button {
+  font-size: 16px;
+  display: block;
+  margin-left: 430px;
+  width: 160px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+//ログイン
+.users-login-wrapper {
+  width: $main_width;
+  margin: 0 auto 220px auto;
+  padding: 30px;
+  border: 1px solid $border_color;
+  border-radius: 5px;
+  .users-login-left {
+    width: 380px;
+    height: 270px;
+    float: left;
+    padding-top: 25px;
+    p {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .legistration-button {
+      margin-left: 116px;
+    }
+    .guest-login-button {
+      margin-left: 122px;
+    }
+  }
+  .users-login-right {
+    width: 620px;
+    height: 270px;
+    float: right;
+  }
+}
+
+
+//会員登録
+.users-registration-wrapper {
+  width: $main_width;
+  margin: 0 auto 50px auto;
+  padding: 30px;
+  border: 1px solid $border_color;
+  border-radius: 5px;
+  .users-registration-left {
+    width: 380px;
+    height: 442px;
+    float: left;
+    padding-top: 25px;
+    p {
+      text-align: center;
+      margin: 15px 0;
+    }
+    .login-button {
+      margin-left: 136px;
+    }
+    .guest-login-button {
+      margin-left: 122px;
+    }
+  }
+  .users-registration-right {
+    width: 620px;
+    height: 442px;
+    float: right;
+  }
+}
