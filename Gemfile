@@ -17,6 +17,7 @@ gem 'carrierwave', '~> 2.0' #画像のアップロード
 gem 'mysql2'#データベース 
 gem 'kaminari' #ページネーション
 gem 'faker' #サンプルユーザー
+gem 'breadcrumbs_on_rails' #パンクズ
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
