@@ -1,4 +1,6 @@
-server '54.150.162.59', user: 'ec2-user', roles: %w{app db web}
+server '54.150.162.59', user: 'yuta', roles: %w{app db web}
+
+set :ssh_options, keys: '~/.ssh/Off-lead_key_rsa'
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
