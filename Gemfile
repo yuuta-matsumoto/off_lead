@@ -17,6 +17,8 @@ gem 'carrierwave', '~> 2.0' #画像のアップロード
 gem 'mysql2'#データベース 
 gem 'kaminari' #ページネーション
 gem 'faker' #サンプルユーザー
+# 環境変数の管理をするもの
+gem 'dotenv-rails'
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
@@ -45,6 +47,15 @@ group :development, :test do
   gem 'pry-doc'    # methodを表示
   gem 'pry-byebug' # デバッグを実施(Ruby 2.0以降で動作する)
   gem 'pry-stack_explorer' # スタックをたどれる
+ #自動デプロイ
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
+
+  gem 'ed25519', '>= 1.2', '< 2.0'
+  gem 'bcrypt_pbkdf','>= 1.0', '< 2.0'
 end
 
 group :development do
@@ -62,6 +73,10 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+end
+
+group :production, :staging do
+  gem 'unicorn'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
