@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :likes, :following, :follower]
   add_breadcrumb "ホーム" , :root_path
-  
+  add_breadcrumb 'ユーザー一覧', :users_path
+
   def index
     @users = User.all.order("created_at ASC").page(params[:page]).per(10)
-    add_breadcrumb 'ユーザー一覧', :users_path
   end
 
   def show
@@ -28,29 +28,25 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    add_breadcrumb 'ユーザー一覧', :users_path
-    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb "#{@user.name}", :user_path
   end
   #いいね機能のメソッド
   def likes
     @user = User.find_by(id: params[:id])
-    add_breadcrumb 'ユーザー一覧', :users_path
-    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb "#{@user.name}", :user_path
     add_breadcrumb 'いいね', "/users/#{@user.id}/likes"
   end
 
   #フォロー機能のメソッド
   def following
     @user  = User.find(params[:id])
-    add_breadcrumb 'ユーザー一覧', :users_path
-    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb "#{@user.name}", :user_path
     add_breadcrumb 'フォロー中', :following_user_path
   end
 
   def follower
     @user  = User.find(params[:id])
-    add_breadcrumb 'ユーザー一覧', :users_path
-    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb "#{@user.name}", :user_path
     add_breadcrumb 'フォロワー', :follower_user_path
   end
 

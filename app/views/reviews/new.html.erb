@@ -2,7 +2,7 @@
 
 <div class="main">
   <div class="main-wrapper">
-
+  <%= render_breadcrumbs separator: ' > ' %><br>
 
     <% if @user.img?%>
       <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>

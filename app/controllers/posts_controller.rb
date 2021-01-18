@@ -1,15 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   add_breadcrumb "ホーム" , :root_path
-
-  def index
-    @posts = Post.all
-    @user = User.find_by(params[:id])
-  end
+  add_breadcrumb 'ユーザー一覧', :users_path
 
   def new
     @post = Post.new
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(id: @post.user_id)
     add_breadcrumb "新規投稿", :new_post_path
   end
 
@@ -28,10 +24,16 @@ class PostsController < ApplicationController
     @reviews = @post.reviews
     @like = Like.new
     @user = User.find_by(id: @post.user_id) #投稿をしたユーザーのuser_idを代入
+    add_breadcrumb "#{@user.name}", :users_path
+    add_breadcrumb "#{@post.title}", :post_path
   end
 
   def edit
     @post = Post.find(params[:id])
+    @user = User.find_by(id: @post.user_id)
+    add_breadcrumb "#{@user.name}", :users_path
+    add_breadcrumb "#{@post.title}", :post_path
+    add_breadcrumb '編集', :edit_post_path
   end
 
   def update
