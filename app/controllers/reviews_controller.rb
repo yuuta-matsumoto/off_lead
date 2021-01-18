@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
     if @review.save
       redirect_to controller: :posts, action: :show, id: @review.post.id
     else
-      render action: :new
+      render 'new'
     end
   end
 

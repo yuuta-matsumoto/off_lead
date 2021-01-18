@@ -32,10 +32,36 @@
               オフリードであなたの愛犬に合った<br>
               ドッグトレーナー が見つかります</span>
       </div>
-      <% unless user_signed_in? %>
-        <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-md guest-login-button", method: :post %>
-      <% end %>
+      <div id="guest-login">
+        <% unless user_signed_in? %>
+          ログインせずに機能を試す→<%= link_to 'ゲストログイン', users_guest_sign_in_path, 
+                    class: "btn btn-primary btn-lg ml-2", method: :post %>
+        <% end %>
+      </div>
     </div>
   </div>
-  <div class="home-main"></div>
+
+  <div class="home-main">
+    <div class="home-main-wrapper">
+      <div class="main-top">
+        <div class="about-offlead">オフリードとは？</div>
+        <div class="offlead-content"> 
+        ドッグトレーナーと犬を飼っている人をつなげるマッチングサービスです。<br>
+        日本ではまだまだマイナーなドッグトレーニングですが、海外では当たり前。<br>
+        「なかなか言うことを聞いてくれない」「飼い始めたばかりだけど、しつけ方が分からない」<br>
+        そんなお悩みは経験豊富なプロのドッグトレーナーに任せましょう。<br>
+        きっと今までよりも素敵な愛犬ライフが見つかりますよ。
+        </div>
+      </div>
+      <div class="main-bottom mt-5">
+        <div class="howto">使い方</div>
+        <div class="howto-content">
+          ①まずはドッグトレーナーを検索しましょう。<br>
+          ②気になるドッグトレーナーが見つかったらフォローやメッセージをしてみてください。<br>
+          ③メッセージ内で愛犬のことについてヒアリングの後に日時や具体的な金額を決めてください。<br>
+          ④当日、ドッグトレーニング を受けてみてください。
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

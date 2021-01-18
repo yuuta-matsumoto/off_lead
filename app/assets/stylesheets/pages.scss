@@ -54,25 +54,79 @@
 
     #catchphrase {
       letter-spacing: 10px;
-      font-size: 20px;
+      font-size: 38px;
       background-color:rgba(204, 204, 204, 0.5);
-      height: 110px;
-      width: 560px;
+      height: 210px;
+      width: 780px;
       text-align: center;
       font-weight: bold;
-      font-family: 'Courier New', Courier, monospace;
       margin: 300px 0 0 0px;
-      line-height: 32px;
+      line-height: 60px;
       padding-top: 10px;
+      border-radius: 10px;
     }
+    #guest-login {
+      color: #fff;
+      font-size: 20px;
+      margin: 0 auto;
+      width: 500px;
+      margin-top: 150px;
+    }  
   }
 }
 
 
+
+/*==========================================================
+    トップページ中央
+============================================================*/
+
+
+
 .home-main {
-  width: auto;
-  height: 500px;
-  background-color: #fff;
+  background-color: $sub_color;
+  .home-main-wrapper {
+    width: $main_width;
+    margin: 0 auto;
+    padding: 50px;
+    .main-top {
+      width: 860px;
+      height: 230px;
+      background-color: rgb(255, 209, 150);
+      border-radius: 20px;
+      margin: 10px auto;
+      padding: 20px;
+      .about-offlead {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      .offlead-content {
+        font-size: 16px;
+        line-height: 26px;
+      }
+    }
+    .main-bottom {
+      color: #fff;
+      width: 860px;
+      height: 200px;
+      background-color: rgb(187, 89, 23);
+      border-radius: 20px;
+      margin: 10px auto;
+      padding: 20px;
+      .howto {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 3px;
+        margin-bottom: 20px;
+      }
+      .howto-content {
+      font-size: 16px;
+      line-height: 26px;
+      }
+    }
+  }
 }
 
 
