@@ -2,8 +2,10 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!, only: [:show, :likes, :following, :follower]
 
+  add_breadcrumb "ホーム" , :root_path
   def index
     @users = User.all.order("created_at ASC").page(params[:page]).per(10)
+    add_breadcrumb 'ユーザー一覧', :users_path
   end
 
   def show
@@ -27,6 +29,7 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
+    add_breadcrumb "#{@user.name}さんのページ", :@user_path
   end
   #いいね機能のメソッド
   def likes

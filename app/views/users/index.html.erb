@@ -2,6 +2,7 @@
 
 <div class="users-main">
   <div class="users-main-wrapper">
+  <%= render_breadcrumbs separator: ' > ' %>
     <p class="users-title">ユーザー一覧（何件か表示する）</p>
 
     <%= render "list", contents: @users %>
