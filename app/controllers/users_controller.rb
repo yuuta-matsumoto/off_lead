@@ -29,24 +29,30 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    add_breadcrumb "#{@user.name}さんのページ", :@user_path
+    add_breadcrumb 'ユーザー一覧', :users_path
+    add_breadcrumb "#{@user.name}さんのページ", :user_path
   end
   #いいね機能のメソッド
   def likes
     @user = User.find_by(id: params[:id])
+    add_breadcrumb 'ユーザー一覧', :users_path
+    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb 'いいね', "/users/#{@user.id}/likes"
   end
 
   #フォロー機能のメソッド
   def following
     @user  = User.find(params[:id])
-    p 'aaa' # ログのどこに出たかわかりやすくするため
-    p params[:page]
-    @users = @user.following_user.page(params[:page]).per(1)
+    add_breadcrumb 'ユーザー一覧', :users_path
+    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb 'フォロー中', :following_user_path
   end
 
   def follower
     @user  = User.find(params[:id])
-    @users = @user.follower_user.page(params[:page]).per(1)
+    add_breadcrumb 'ユーザー一覧', :users_path
+    add_breadcrumb "#{@user.name}さんのページ", :user_path
+    add_breadcrumb 'フォロワー', :follower_user_path
   end
 
 end

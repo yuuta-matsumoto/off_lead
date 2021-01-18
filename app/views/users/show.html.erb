@@ -2,7 +2,8 @@
 
 <div class="users-main">
   <div class="users-main-wrapper">
-
+    <%= render_breadcrumbs separator: ' > ' %>
+    
     <%= render "profiel", user: @user %>
 
     <%= render "navbar", user: @user %>
