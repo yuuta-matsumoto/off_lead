@@ -11,7 +11,7 @@
         </li> 
         <div class="post-box-right">
           <li class="post-title-box"><%= post.title %></li>
-          <li class="post-content-box"><%= post.content%></li>
+          <li class="post-content-box"><%=safe_join(post.content.split("\n"),tag(:br))%></li>
           
           <li class="post-price-box"><%= post.price%>円(税込み)</li>
         </div>

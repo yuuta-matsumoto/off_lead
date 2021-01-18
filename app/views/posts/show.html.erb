@@ -34,7 +34,7 @@
           <% end %>
         </div>
           <div class="clearfix"></div>
-        <div class="post-content-box"><%= @post.content%></div>
+        <div class="post-content-box"><%=safe_join(@post.content.split("\n"),tag(:br))%></div>
         <!-- ここにレビューの星平均を入れる-->
         <div class="post-price-box"><%= @post.price%>円(税込み)</div>
         <div class="clearfix"></div>
@@ -64,7 +64,7 @@
             </div>
               <div class="clearfix"></div>
             <li id="review-title"><%= r.title %></li>
-            <li id="review-content"><%= r.content %></li>
+            <li id="review-content"><%=safe_join(r.content.split("\n"),tag(:br))%></li>
           </div>
         <% end %>
       </ul>
