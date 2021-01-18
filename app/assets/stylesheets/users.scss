@@ -337,11 +337,11 @@ p#message-button {
 .users-main {
   h2 {
     font-size: 28px;
-    margin: 30px 20px 30px 280px;
+    margin: 30px 20px 30px 30px;
     padding-left: 20px;
   }
   .users-edit-wrapper {
-    width: $main_width;
+    //width: $main_width;
     margin: 0 auto;
     padding: 30px;
     border: 1px solid $border_color;
@@ -351,14 +351,14 @@ p#message-button {
 }
 
 .update-buton {
-  margin-left: 430px;
+  margin-left: 400px;
   width: 160px;
 }
 
 .delete-button {
   font-size: 16px;
   display: block;
-  margin-left: 430px;
+  margin-left: 400px;
   width: 160px;
   text-align: center;
   margin-top: 20px;

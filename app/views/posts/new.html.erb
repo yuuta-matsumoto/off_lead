@@ -2,6 +2,7 @@
 
 <div class="main"> 
   <div class="main-wrapper">
+    <%= render_breadcrumbs separator: ' > ' %>
     <div class="new-post">
       <div class="new-post-top">新規投稿</div>
       <%= form_for @post do |f| %>

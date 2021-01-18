@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  add_breadcrumb "ホーム" , :root_path
 
   def index
     @posts = Post.all
@@ -8,6 +9,8 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    @user = User.find_by(id: params[:id])
+    add_breadcrumb "新規投稿", :new_post_path
   end
 
   def create

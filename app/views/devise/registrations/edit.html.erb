@@ -1,48 +1,51 @@
 <%= render "/layouts/header"%>
 
 <div class="users-main">
-  <h2>プロフィールの編集</h2>
-  <div class="users-edit-wrapper">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <div class="users-main-wrapper">
+    <%= render_breadcrumbs separator: ' > ' %>
+    <h2>プロフィールの編集</h2>
+    <div class="users-edit-wrapper">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
 
 
-      <div class="field">
-        <%= f.label '名前' %><br />
-        <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "name" %>
-      </div>
+        <div class="field">
+          <%= f.label '名前' %><br />
+          <%= f.text_field :name, autofocus: true, class: "form-control", autocomplete: "name" %>
+        </div>
 
-      <div class="field">
-        <%= f.label '自己紹介' %><br />
-        <%= f.text_area :content, autofocus: true, class: "form-control", rows: 5, autocomplete: "content" %>
-      </div>
+        <div class="field">
+          <%= f.label '自己紹介' %><br />
+          <%= f.text_area :content, autofocus: true, class: "form-control", rows: 5, autocomplete: "content" %>
+        </div>
 
-      <div class="field">
-        <%= f.label 'メールアドレス' %><br />
-        <%= f.email_field :email, autofocus: true, class: "form-control",  autocomplete: "email" %>
-      </div>
+        <div class="field">
+          <%= f.label 'メールアドレス' %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control",  autocomplete: "email" %>
+        </div>
 
-      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-        <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field">
+          <%= f.label '新しいパスワード' %><br />
+          <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
+        </div>
+
+        <div class="field">
+          <%= f.label '新しいパスワード (確認)' %><br />
+          <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
+        </div>
+
+          <%= f.submit "更新" , class: "btn btn-primary btn-lg update-buton"%>
+
       <% end %>
+              <%= button_to "退会", registration_path(resource_name), data: { confirm: "退会します。本当によろしいですか？" },
+              method: :delete, class: "btn btn-danger btn-lg delete-button" %>
+          <div class="clearfix"></div>
 
-      <div class="field">
-        <%= f.label '新しいパスワード' %><br />
-        <%= f.password_field :password, class: "form-control", autocomplete: "new-password" %>
-      </div>
-
-      <div class="field">
-        <%= f.label '新しいパスワード (確認)' %><br />
-        <%= f.password_field :password_confirmation, class: "form-control", autocomplete: "new-password" %>
-      </div>
-
-        <%= f.submit "更新" , class: "btn btn-primary btn-lg update-buton"%>
-
-    <% end %>
-            <%= button_to "退会", registration_path(resource_name), data: { confirm: "退会します。本当によろしいですか？" },
-            method: :delete, class: "btn btn-danger btn-lg delete-button" %>
-        <div class="clearfix"></div>
-
-    <div class="clearfix"></div>
+      <div class="clearfix"></div>
+    </div>
   </div>
 </div>
 
