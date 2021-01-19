@@ -136,18 +136,26 @@
 ============================================================*/
 
 
-
-.term-list {
-  font-size: 20px;
-  line-height: 38px;
-  background-color: #e8e8e8;
-  font-weight: bold;
-  padding-left: 15px;
-  border-radius: 5px;
-  margin: 20px 0;
-}
-
-.term-content {
-  font-size: 14px;
-  line-height: 22px;
+.term-main {
+  width: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  .term-main-wrapper {
+    background-color: #fff;
+    width: $main_width;
+    margin: 0 auto;
+    padding: 50px;
+    .term-list {
+      font-size: 20px;
+      line-height: 38px;
+      background-color: #e8e8e8;
+      font-weight: bold;
+      padding-left: 15px;
+      border-radius: 5px;
+      margin: 20px 0;
+    }
+    .term-content {
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
 }
