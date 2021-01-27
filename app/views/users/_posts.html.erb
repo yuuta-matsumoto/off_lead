@@ -6,7 +6,7 @@
           <% if post.img?%>
             <img src='<%=post.img %>' alt="投稿の画像" width="190" height="190">
           <% else %>
-            <img src="/assets/default.png" alt="投稿の画像" width="190" height="190">
+            <%= image_tag 'default.png', alt: "投稿の画像", size: '190x190'%>
           <% end %>
         </li> 
         <div class="post-box-right">

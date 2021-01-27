@@ -4,7 +4,7 @@
       <% if user.img?%>
         <img src='<%= user.img %>' alt="ユーザーアイコン" width="260" height="260">
       <% else %>
-        <img src="/assets/default.png" alt="ユーザーアイコン" width="260" height="260">
+        <%= image_tag 'default.png', alt: "ユーザーアイコン", size: '260x260'%>
       <% end %>
     </div>
     <div class="user-button-box">

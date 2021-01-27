@@ -4,9 +4,9 @@
       <div class="users-repeat-box">
         <li class="users-box-left-info">
           <% if user.img?%>
-            <%= image_tag 'user.img', :alt => "ユーザーアイコン", :size => '110×110'%>
+            <img src='<%= user.img %>' alt="ユーザーアイコン" width="110" height="110">
           <% else %>
-            <img src="/assets/default.png" alt="ユーザーアイコン" width="110" height="110">
+            <%= image_tag 'default.png', :alt => "ユーザーアイコン", :size => '110x110'%>
           <% end %>
         </li>
         <div class="users-box-right-info">

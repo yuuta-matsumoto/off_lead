@@ -4,9 +4,9 @@
   <div class="main-wrapper">
     <div class="pankuzu"><%= render_breadcrumbs separator: ' > '%></div>
     <% if @user.img?%>
-      <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
+      <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="投稿画像" width="48" height="48" id="post-user-image"></a>
     <% else %>
-      <a href='/users/<%= @user.id %>'><img src="/assets/default.png" alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
+      <%= image_tag 'default.png', alt: "投稿画像", size: '48x48', id: "post-user-image"%>
     <% end %>
 
     <a href='/users/<%= @user.id %>' id="post-user-name"><%=  @user.name%></a>
