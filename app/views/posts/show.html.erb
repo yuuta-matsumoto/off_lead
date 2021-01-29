@@ -18,7 +18,7 @@
         <% if @post.img? %>
           <img src='<%=@post.img %>' alt="投稿の画像" width="380" height="380">
         <% else %>
-          <img src="/assets/default.png" alt="投稿の画像" width="380" height="380">
+          <%= image_tag 'default.png', alt: "投稿画像", size: '380x380'%>
         <% end %>
       </div> 
       <div class="post-box-right">
