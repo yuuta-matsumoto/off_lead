@@ -2,18 +2,11 @@ class RoomsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @Room = Room.find_by(user_id: current_user.id)
-    if @Room.blank?
-      @room = Room.create(user_id: current_user.id)
-      #現在ログインしているユーザーのentry
-      @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
-      #fields_forから送られてきたparams(:user_id, room_id)を許可する
-      @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))
-      redirect_to "/rooms/#{@room.id}"
-    else
-      @room = Room.find_by(user_id: current_user.id)
-      redirect_to "/rooms/#{@room.id}"
-    end
+    @room = Room.create(user_id: current_user.id)#現在ログインしているユーザーのentry
+    @entry1 = Entry.create(room_id: @room.id, 
+                            user_id: current_user.id)#fields_forから送られてきたparams(:user_id, room_id)を許可する
+    @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))
+    redirect_to room_path(@room.id)
   end
 
   def show

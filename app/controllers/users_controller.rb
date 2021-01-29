@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     unless @user.id == current_user.id #現在ログインしているユーザーではない（自分に対してはroomを作成できない）
       @currentUserEntry.each do |cu|
         @userEntry.each do |u|
-          if cu.room_id == u.room_id then #ルームがすでに作成されている場合
+          if cu.room_id == u.room_id  #ルームがすでに作成されている場合
             @isRoom = true #false(roomが未作成)の時にroomを作成する条件を記述するため
             @roomId = cu.room_id
           end

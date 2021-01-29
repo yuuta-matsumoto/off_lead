@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
-
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!
 
   def create
     if Entry.where(user_id: current_user.id, #メッセージを送れるのはcurrent_user
@@ -13,4 +12,5 @@ class MessagesController < ApplicationController
     end
     redirect_to "/rooms/#{@message.room_id}"
   end
+
 end
