@@ -34,7 +34,7 @@
       </div>
       <div id="guest-login">
         <% unless user_signed_in? %>
-          ログインせずに機能を試す→<%= link_to 'ゲストログイン', users_guest_sign_in_path, 
+          会員登録せずに機能を試す→<%= link_to 'ゲストログイン', users_guest_sign_in_path, 
                     class: "btn btn-primary btn-lg ml-2", method: :post %>
         <% end %>
       </div>

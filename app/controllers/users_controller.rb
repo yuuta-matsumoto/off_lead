@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
-
+    
     @currentUserEntry = Entry.where(user_id: current_user.id) #ボタンを押したユーザーを探す
     @userEntry = Entry.where(user_id: @user.id) #ボタンを押されたユーザーを探す。
     unless @user.id == current_user.id #現在ログインしているユーザーではない（自分に対してはroomを作成できない）

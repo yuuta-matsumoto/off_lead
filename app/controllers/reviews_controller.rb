@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
   add_breadcrumb "ホーム" , :root_path
   add_breadcrumb 'ユーザー一覧', :users_path
 
