@@ -28,13 +28,17 @@
       <!-- メッセージボタン-->
       <% unless @user.id == current_user.id %>
         <% if @isRoom == true %> <!--すでにroomがあったら「メッセージへ」と表示してメッセージに飛ばす-->
-          <%= link_to "メッセージ", room_path(@roomId), class: "far fa-envelope btn btn-lg" %>
+          <div class="message-button">
+            <%= link_to "メッセージ", room_path(@roomId), class: "far fa-envelope btn btn-lg" %>
+          </div>
         <% else %>
           <%= form_with model: @room, local: true do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %> <!-- entryテーブルにuser_idを送る -->
             <% end %>
-              <%= f.submit class: "far fa-envelope btn-md", alt: "メッセージを送る" %>
+              <div class="message-button">
+                <%= f.submit "メッセージ", class: "btn-primary btn btn-md", alt: "メッセージを送る" %>
+              </div>
           <% end %>
         <% end %>
         <!-- ログインしているのが自分だったら-->

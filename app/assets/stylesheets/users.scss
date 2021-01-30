@@ -152,7 +152,7 @@
     .user-button-box {
       height: 100px;
       width: 300px;
-      margin: 35px auto 0 auto;
+      margin: 20px auto 0 auto;
       background-color: #fff;
       p .hover {
         display: none;
@@ -162,6 +162,10 @@
       }
       p:hover .hover {
         display: inline;
+      }
+      .message-button {
+        text-align: center;
+        margin-top: 5px;
       }
     }
   }
@@ -195,7 +199,8 @@
 }
 
 p#follow-button {
-  margin-left: 20px;
+  display: block;
+  margin: 0 auto;
 }
 
 p#message-button {
