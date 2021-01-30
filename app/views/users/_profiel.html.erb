@@ -28,7 +28,7 @@
       <!-- メッセージボタン-->
       <% unless @user.id == current_user.id %>
         <% if @isRoom == true %> <!--すでにroomがあったら「メッセージへ」と表示してメッセージに飛ばす-->
-          <%= link_to "to room", room_path(@roomId), class: "far fa-envelope btn btn-lg" %>
+          <%= link_to "メッセージ", room_path(@roomId), class: "far fa-envelope btn btn-lg" %>
         <% else %>
           <%= form_with model: @room, local: true do |f| %>
             <%= fields_for @entry do |e| %>

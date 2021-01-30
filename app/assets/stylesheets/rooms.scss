@@ -1,1 +1,39 @@
 @import "valiables";
+
+div.message-right {
+  line-height: 20px;
+  width: 600px;
+  text-align: right;
+  float: right;
+  background-color: $sub_color;
+  border-radius: 10px 0 10px 10px;
+  margin: 0 0 20px 0;
+  padding: 10px;
+}
+.other-user-message {
+  display: flex;
+}
+.other-user-image {
+}
+
+.message-left {
+  line-height: 20px;
+  width: 600px;
+  background-color: #ebebeb;
+  border-radius: 0 10px 10px 10px;
+  margin: 0 0 20px 10px;
+  padding: 10px;
+  float: left;
+}
+
+.send-box {
+  border: 2px solid $border_color;
+  width: 900px;
+  margin: 0 auto 30px auto;
+  .send-message-box {
+    width: 896px;
+    height: 120px;
+    padding: 10px;
+    line-height: 20px;
+  }
+}

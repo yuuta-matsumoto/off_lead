@@ -5,30 +5,44 @@
 
     <% @entries.each do |e| %>
       <% unless e.user.name == current_user.name %>
-        <%= e.user.name %>さんへのメッセージ
+        <div class="pankuzu"><%= render_breadcrumbs separator: ' > '%></div>
+
+        <div class="h3 mt-5"><%= e.user.name %> さんへのメッセージ</div>
       <% end %>
     <% end %>
-    <hr>
+    <hr class="mt-3 mb-5">
 
     <% @messages.each do |m| %>
       <% if m.user.id == current_user.id %>
-        <div class="text-right">
-          <%= m.content %><br>
-          <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+        <div class="message-right">
+          <div class="text-left"><%= m.content %></div>
+          <%= m.created_at.strftime("%Y年%m月%d日 %H:%M")%>
         </div>
+        <div class="clearfix"></div>
       <% else %>
-        <div class="text-left">
-          <%= m.content %><br>
-          <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
+        <div class="other-user-message">
+          <div calass="other-user-image">
+            <% if User.find(m.user_id).img?%> <!-- メッセージ相手のプロフィール画像-->
+              <img src="<%= User.find(m.user_id).img%>" alt="プロフィール画像" height="50" width="50">
+            <% else %>
+              <%= image_tag "default.png", size:"50x50"%>
+            <% end %>
+          </div>
+          <div class="message-left">
+            <%= m.content %><br>
+            <div class="text-right"><%= m.created_at.strftime("%Y年%m月%d日 %H:%M")%></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
       <% end %>
     <% end %>
-    <hr>
-    
+    <hr class="mt-5">
+    <div class="send-box">
     <%= form_for @message do |f| %>
-      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text" %>
+      <%= f.text_area :content, placeholder: "メッセージを入力して下さい" , class:"send-message-box" %>
       <%= f.hidden_field :room_id, value: @room.id %>
-      <%= f.submit "投稿",class: 'form-submit'%>
+      <div class="text-right"><%= f.button "メッセージを送る", type: "submit", class: 'btn btn-primary btn-md m-2'%></div>
     <% end %>
-
+    </div>
   </div>
 </div>
