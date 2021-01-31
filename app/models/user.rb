@@ -12,8 +12,8 @@ class User < ApplicationRecord
   #メッセージ機能
   has_many :messages, dependent: :destroy
   has_many :entries,  dependent: :destroy
-  has_many :rooms, through: :entries #メッセージしているユーザー一覧を取得する
-  has_many :likes,    dependent: :destroy
+  has_many :rooms, through: :entries , foreign_key: :user_id#メッセージしているユーザー一覧を取得する
+  has_many :likes,    dependent: :destroy, foreign_key: :user_id
   has_many :liked_posts, through: :likes, source: :post #user.liked_postsでuserのいいねした投稿を一気に取り出せる。
   
   has_many :reviews, dependent: :destroy
