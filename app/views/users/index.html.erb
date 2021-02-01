@@ -2,7 +2,8 @@
 
 <div class="users-main">
   <div class="users-main-wrapper">
-    <p class="users-title">ユーザー一覧（何件か表示する）</p>
+    <div class="pankuzu"><%= render_breadcrumbs separator: ' > '%></div>
+    <p class="users-title">ユーザー一覧</p>
 
     <%= render "list", contents: @users %>
     <div class="users-paginate-bottom"><%= paginate @users %></div>

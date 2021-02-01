@@ -4,7 +4,7 @@
       <% if user.img?%>
         <img src='<%= user.img %>' alt="ユーザーアイコン" width="260" height="260">
       <% else %>
-        <img src="/assets/default.png" alt="ユーザーアイコン" width="260" height="260">
+        <%= image_tag 'default.png', alt: "ユーザーアイコン", size: '260x260'%>
       <% end %>
     </div>
     <div class="user-button-box">
@@ -28,23 +28,21 @@
       <!-- メッセージボタン-->
       <% unless @user.id == current_user.id %>
         <% if @isRoom == true %> <!--すでにroomがあったら「メッセージへ」と表示してメッセージに飛ばす-->
-          <p id="message-button">
-            <a href="/rooms/<%=@roomId%>"><i class="far fa-envelope btn btn-lg" alt="メッセージを送る"></i></a> 
-          </p>
+          <div class="message-button">
+            <%= link_to "メッセージ", room_path(@roomId), class: "far fa-envelope btn btn-lg" %>
+          </div>
         <% else %>
           <%= form_with model: @room, local: true do |f| %>
             <%= fields_for @entry do |e| %>
               <%= e.hidden_field :user_id, value: @user.id %> <!-- entryテーブルにuser_idを送る -->
             <% end %>
-            <p id="message-button">
-              <%= f.button type: "submit" do %>
-                <i class="far fa-envelope btn-md" alt="メッセージを送る"></i>
-              <% end %>
-            </p>
+              <div class="message-button">
+                <%= f.submit "メッセージ", class: "btn-primary btn btn-md", alt: "メッセージを送る" %>
+              </div>
           <% end %>
         <% end %>
         <!-- ログインしているのが自分だったら-->
-        <% else %>
+      <% else %>
           <%= link_to '設定', edit_user_registration_path, class: "btn btn-outline-secondary btn-md ml-5" %>
           <%= link_to '投稿する', new_post_path, class: "btn btn-primary btn-md ml-3" %>
       <% end %>
@@ -60,7 +58,7 @@
       <% end %>
     </div>
     <div class="user-content-box">
-      <%= user.content%>
+      <%= user.content %>
     </div>
     <div class="user-area-box"></div>
   </div>

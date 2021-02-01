@@ -2,10 +2,11 @@
 
 <div class="main">
   <div class="main-wrapper">
+    <div class="pankuzu"><%= render_breadcrumbs separator: ' > '%></div>
     <% if @user.img?%>
-      <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
+      <a href='/users/<%= @user.id %>'><img src='<%= @user.img %>' alt="投稿画像" width="48" height="48" id="post-user-image"></a>
     <% else %>
-      <a href='/users/<%= @user.id %>'><img src="/assets/default.png" alt="ユーザーアイコン" width="48" height="48" id="post-user-image"></a>
+      <%= image_tag 'default.png', alt: "投稿画像", size: '48x48', id: "post-user-image"%>
     <% end %>
 
     <a href='/users/<%= @user.id %>' id="post-user-name"><%=  @user.name%></a>
@@ -17,7 +18,7 @@
         <% if @post.img? %>
           <img src='<%=@post.img %>' alt="投稿の画像" width="380" height="380">
         <% else %>
-          <img src="/assets/default.png" alt="投稿の画像" width="380" height="380">
+          <%= image_tag 'default.png', alt: "投稿の画像", size: '380x380'%>
         <% end %>
       </div> 
       <div class="post-box-right">
@@ -33,7 +34,7 @@
           <% end %>
         </div>
           <div class="clearfix"></div>
-        <div class="post-content-box"><%= @post.content%></div>
+        <div class="post-content-box"><%=safe_join(@post.content.split("\n"),tag(:br))%></div>
         <!-- ここにレビューの星平均を入れる-->
         <div class="post-price-box"><%= @post.price%>円(税込み)</div>
         <div class="clearfix"></div>
@@ -63,17 +64,7 @@
             </div>
               <div class="clearfix"></div>
             <li id="review-title"><%= r.title %></li>
-            <li id="review-content"><%= r.content %></li>
-            <script>
-                $('#star-rate-<%= r.id %>').raty({
-                  size: 30,
-                  starOff:  '<%= asset_path('star-off.png') %>',
-                  starOn : '<%= asset_path('star-on.png') %>',
-                  starHalf: '<%= asset_path('star-half.png') %>',
-                  half: true,
-                  score: <%= r.rate %>,
-              });
-            </script> 
+            <li id="review-content"><%=safe_join(r.content.split("\n"),tag(:br))%></li>
           </div>
         <% end %>
       </ul>
@@ -81,3 +72,17 @@
     
   </div>
 </div>
+
+
+<% @reviews.each do |r| %>
+ <script>
+    $('#star-rate-<%= r.id %>').raty({
+      size: 30,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      score: <%= r.rate %>,
+  });
+</script>
+<% end %>

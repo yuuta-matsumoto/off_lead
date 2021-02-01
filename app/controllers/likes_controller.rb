@@ -1,5 +1,5 @@
 class LikesController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:create, :destroy]
 
   def index
     @user = User.find(params[:id])

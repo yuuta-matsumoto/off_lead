@@ -1,13 +1,14 @@
 <%= render "/layouts/header"%>
 
 <div class="users-main">
-  <h2>ログイン</h2>
+  <div class="users-main-wrapper">
+    <h2>ログイン</h2>
     <div class="users-login-wrapper">
       <div class="users-login-left">
         <p>初めてご利用の方</p>
         <%= link_to "新規会員登録", new_user_registration_path, class: "btn btn-primary btn-lg legistration-button" %>
         <p>会員登録をせずに利用する方</p>
-        <%= link_to "ゲストログイン", "#", class: "btn btn-secondary btn-md guest-login-button" %>
+        <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "btn btn-secondary btn-md guest-login-button", method: :post %>
       </div>
       <div class="users-login-right">
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -29,4 +30,5 @@
       </div>
       <div class="clearfix"></div>
     </div>
+  </div>
 </div>

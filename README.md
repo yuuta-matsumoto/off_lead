@@ -1,24 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**サービス名：オフリード**
 
-Things you may want to cover:
+**概要：ドッグトレーナーと犬を飼う人のマッチングサービスです。**
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**詳細は下記URLの記事をご覧ください。**
+>[僕が作ったポートフォリオの紹介をします。](https://qiita.com/yuta_matsumoto/items/db6d5df10398525a75ca)

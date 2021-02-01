@@ -1,6 +1,5 @@
 class MessagesController < ApplicationController
-
-  before_action :authenticate_user!, only: [:create]
+  before_action :authenticate_user!
 
   def create
     if Entry.where(user_id: current_user.id, #メッセージを送れるのはcurrent_user
@@ -8,9 +7,11 @@ class MessagesController < ApplicationController
       @message = Message.create(params.require(:message)
                         .permit(:user_id, :room_id, :content)
                         .merge(user_id: current_user.id))
+      flash[:notice] = "メッセージが送信されました"
     else
       flash[:allert] = "メッセージを送信できませんでした"
     end
     redirect_to "/rooms/#{@message.room_id}"
   end
+
 end

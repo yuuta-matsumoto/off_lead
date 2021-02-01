@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :timeoutable, :trackable
+         :lockable, :timeoutable, :trackable # :confirmable
   #ユーザーの画像をアップロードする
   mount_uploader :img, ImgUploader
 
@@ -12,7 +12,8 @@ class User < ApplicationRecord
   #メッセージ機能
   has_many :messages, dependent: :destroy
   has_many :entries,  dependent: :destroy
-  has_many :likes,    dependent: :destroy
+  has_many :rooms, through: :entries , foreign_key: :user_id#メッセージしているユーザー一覧を取得する
+  has_many :likes,    dependent: :destroy, foreign_key: :user_id
   has_many :liked_posts, through: :likes, source: :post #user.liked_postsでuserのいいねした投稿を一気に取り出せる。
   
   has_many :reviews, dependent: :destroy
@@ -40,5 +41,12 @@ class User < ApplicationRecord
   #いいね機能のメソッド
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)
+  end
+  #ゲストログインのクラスメソッド
+  def self.guest
+    find_or_create_by!(name: 'ゲストユーザー', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      user.confirmed_at = Time.now 
+    end
   end
 end
