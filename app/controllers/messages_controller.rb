@@ -7,6 +7,7 @@ class MessagesController < ApplicationController
       @message = Message.create(params.require(:message)
                         .permit(:user_id, :room_id, :content)
                         .merge(user_id: current_user.id))
+      flash[:notice] = "メッセージが送信されました"
     else
       flash[:allert] = "メッセージを送信できませんでした"
     end

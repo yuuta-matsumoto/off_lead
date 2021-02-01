@@ -24,7 +24,7 @@ class PostsController < ApplicationController
     @reviews = @post.reviews
     @like = Like.new
     @user = User.find_by(id: @post.user_id) #投稿をしたユーザーのuser_idを代入
-    add_breadcrumb "#{@user.name}", :users_path
+    add_breadcrumb "#{@user.name}", "/users/#{@user.id}"
     add_breadcrumb "#{@post.title}", :post_path
   end
 
