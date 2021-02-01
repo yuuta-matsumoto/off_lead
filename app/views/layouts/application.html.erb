@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>オフリード</title>
+    <title>ドッグトレーナーを探しているならオフリード</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="「犬を飼い始めたけど、しつけはどうやればいいの？」
+    「愛犬の吠え癖、噛み癖が治らない...」そんなお悩みありませんか？オフリードでは、あなたの愛犬にぴったりのドッグトレーナーが見つかります。" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css"> <!-- 追加 -->
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico') %>
+    <% if Rails.env.production? %>
+      <%= render 'google_analitics'%>
+    <% end %>
   </head>
 
   <body>
