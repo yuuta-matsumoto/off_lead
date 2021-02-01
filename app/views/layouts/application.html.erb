@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <%= render "google_analytics" %>
     <title>ドッグトレーナーを探しているならオフリード</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,9 +12,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= favicon_link_tag('favicon.ico') %>
-    <% if Rails.env.production? %>
-      <%= render 'google_analitics'%>
-    <% end %>
   </head>
 
   <body>
