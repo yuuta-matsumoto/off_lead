@@ -26,7 +26,7 @@
         <% end %>
       <% end %>
       <!-- メッセージボタン-->
-      <% unless @user.id == current_user.id %>
+      <% unless @user == current_user %>
         <% if @isRoom == true %> <!--すでにroomがあったら「メッセージへ」と表示してメッセージに飛ばす-->
           <div class="message-button">
             <%= link_to "メッセージ", room_path(@roomId), class: "far fa-envelope btn btn-lg" %>

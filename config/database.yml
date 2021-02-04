@@ -20,4 +20,3 @@ production:
   username: <%= Rails.application.credentials.db[:username] %>
   password: <%= Rails.application.credentials.db[:password] %>
   host: <%= Rails.application.credentials.db[:host] %>
-  socket: <%= Rails.application.credentials.db[:socket] %>

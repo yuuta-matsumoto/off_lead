@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :likes, :following, :follower]
+  before_action :set_user, only: [:show, :following, :follower, :likes]
+  before_action :create_message_room, only: [:show, :following, :follower, :likes] 
+
   add_breadcrumb "ホーム" , :root_path
   add_breadcrumb 'ユーザー一覧', :users_path
 
@@ -8,26 +11,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
     @posts = @user.posts
-    
-    @currentUserEntry = Entry.where(user_id: current_user.id) #ボタンを押したユーザーを探す
-    @userEntry = Entry.where(user_id: @user.id) #ボタンを押されたユーザーを探す。
-    unless @user.id == current_user.id #現在ログインしているユーザーではない（自分に対してはroomを作成できない）
-      @currentUserEntry.each do |cu|
-        @userEntry.each do |u|
-          if cu.room_id == u.room_id  #ルームがすでに作成されている場合
-            @isRoom = true #false(roomが未作成)の時にroomを作成する条件を記述するため
-            @roomId = cu.room_id
-          end
-        end
-      end
-      
-      unless @isRoom 
-        @room = Room.new
-        @entry = Entry.new
-      end
-    end
     add_breadcrumb "#{@user.name}", :user_path
   end
   #いいね機能のメソッド
@@ -39,15 +23,39 @@ class UsersController < ApplicationController
 
   #フォロー機能のメソッド
   def following
-    @user  = User.find(params[:id])
     add_breadcrumb "#{@user.name}", :user_path
     add_breadcrumb 'フォロー中', :following_user_path
   end
 
   def follower
-    @user  = User.find(params[:id])
     add_breadcrumb "#{@user.name}", :user_path
     add_breadcrumb 'フォロワー', :follower_user_path
   end
+
+  private
+
+    def set_user
+      @user  = User.find(params[:id])
+    end
+
+    def create_message_room #メッセージルームに移動or新たに作成
+      @currentUserEntry = Entry.where(user_id: current_user.id) #ボタンを押したユーザーを探す
+      @userEntry = Entry.where(user_id: @user.id) #ボタンを押されたユーザーを探す。
+      unless @user.id == current_user.id #現在ログインしているユーザーではない（自分に対してはroomを作成できない）
+        @currentUserEntry.each do |cu|
+          @userEntry.each do |u|
+            if cu.room_id == u.room_id  #ルームがすでに作成されている場合
+              @isRoom = true #false(roomが未作成)の時にroomを作成する条件を記述するため
+              @roomId = cu.room_id
+            end
+          end
+        end
+        
+        unless @isRoom 
+          @room = Room.new
+          @entry = Entry.new
+        end
+      end  
+    end
 
 end
