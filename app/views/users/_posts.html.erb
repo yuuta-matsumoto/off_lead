@@ -14,7 +14,7 @@
             <li class="post-title-box"><%= post.title %></li>
             <li class="post-content-box"><%=safe_join(post.content.split("\n"),tag(:br))%></li>
             
-            <li class="post-price-box"><%= post.price%>円(税込み)</li>
+            <li class="post-price-box"><%= post.price.to_i.to_s(:delimited) %>円(税込み)</li>
           </div>
             <div class="clearfix"></div>
           <a href="/posts/<%= post.id %>">aaa</a>

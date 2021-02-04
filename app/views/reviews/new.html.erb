@@ -31,7 +31,7 @@
           <div class="clearfix"></div>
         <div class="post-content-box"><%= @post.content%></div>
         <!-- ここにレビューの星平均を入れる-->
-        <div class="post-price-box"><%= @post.price%>円(税込み)</div>
+        <div class="post-price-box"><%= @post.price.to_i.to_s(:delimited) %>円(税込み)</div>
         <div class="clearfix"></div>
       </div>
     </div>
