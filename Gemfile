@@ -32,6 +32,8 @@ gem 'jbuilder'
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
+gem 'rubocop', '~> 1.9', require: false 
+
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
@@ -78,7 +80,7 @@ group :test do
 end
 
 group :production, :staging do
-  gem 'unicorn'
+  gem 'unicorn', '5.8.0'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
